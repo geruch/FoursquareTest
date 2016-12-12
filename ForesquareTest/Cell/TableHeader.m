@@ -24,27 +24,32 @@
     self.categoryName.text = category.name;
     if(!category.picture)
     {
-        category.picture = [[UIImageView alloc] init];
-        
-        NSString *url = [NSString stringWithFormat:@"%@%@%@", category.pictureURL,@"64",@".png"];
-        url = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
-        
-        [category.picture setImageWithURLRequest:request
-                                         placeholderImage:nil
-                                                  success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-                                                      [category.picture initWithImage:image];
-                                                      self.categoryPicture.image = image;
-                                                      NSLog(@"Avatar download - success");                                                  }
-                                                  failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-                                                      NSLog(@"Avatar download - error %@",response);
-                                                  }];
+        [self loadCategoryIcon:category];
     }
     else
     {
         self.categoryPicture.image = category.picture.image;
     }
+}
+
+-(void)loadCategoryIcon:(Category *)category
+{
+    category.picture = [[UIImageView alloc] init];
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@%@", category.pictureURL,@"64",@".png"];
+    url = [url stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    [category.picture setImageWithURLRequest:request
+                            placeholderImage:nil
+                                     success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+                                         [category.picture initWithImage:image];
+                                         self.categoryPicture.image = image;
+                                         NSLog(@"icon download - success");                                                  }
+                                     failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                                         NSLog(@"icon download - error %@",response);
+                                     }];
 }
 
 @end

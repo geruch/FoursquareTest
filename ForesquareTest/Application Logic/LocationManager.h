@@ -10,10 +10,13 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "FTLocationManagerInterface.h"
 
 @interface LocationManager : NSObject
 
 @property (nonatomic, strong) CLLocation *currentLocation;
+
+@property (nonatomic, strong) id<FTLocationManagerInterface> eventHandler;
 
 -(void)launchManager:(UIViewController *)controller;
 
