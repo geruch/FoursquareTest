@@ -39,6 +39,29 @@
     return objects;
 }
 
+-(NSArray *)convertToAdditionalObjects:(NSArray *)venueObjects
+{
+    NSMutableArray *objects = [NSMutableArray arrayWithCapacity:venueObjects.count];
+    for (NSDictionary *object in venueObjects)
+    {
+        
+        Venue *plainVenue = [[Venue alloc] init];
+        plainVenue.venueId = object[@"id"];
+        plainVenue.name = object[@"name"];
+        [plainVenue.location setCoordinate:CLLocationCoordinate2DMake([object[@"location"][@"lat"] doubleValue], [object[@"location"][@"lng"] doubleValue])];
+        plainVenue.location.distance = object[@"location"][@"distance"];
+        plainVenue.location.address = object[@"location"][@"address"];
+        
+        NSDictionary *category = [object[@"categories"] objectAtIndex:0];
+        plainVenue.category.identifier = category[@"id"];
+        plainVenue.category.name = category[@"name"];
+        plainVenue.category.pluralName = category[@"pluralName"];
+        plainVenue.category.pictureURL = category[@"icon"][@"prefix"];
+              
+        [objects addObject:plainVenue];
+    }
+    return objects;
+}
 
 - (NSArray *)convertToCategories:(NSArray *)categoryObjects
 {

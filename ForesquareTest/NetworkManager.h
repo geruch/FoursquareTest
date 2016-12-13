@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
+#import "Category.h"
 
 @interface NetworkManager : AFHTTPSessionManager <NSURLSessionDownloadDelegate>
 
@@ -18,6 +19,11 @@
 - (void)getVenueCategoriesWithSuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
                               FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
                           andParameters:(NSDictionary *)params;
+
+-(void)getMoreVenuesWithLocation:(NSString *)coordinats category:(Category *)category
+                    SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
+                       FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
+                   andParameters:(NSDictionary *)params;
 
 + (NetworkManager *)sharedHttpClient;
 + (void) setupFoursquareWithClientId:(NSString *)clientId

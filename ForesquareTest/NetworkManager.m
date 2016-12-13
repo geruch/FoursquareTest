@@ -18,10 +18,10 @@
 
 @implementation NetworkManager
 
--(void)getNearbyVenuesWithLocation:(NSString *)coordinats SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
-//- (void)getNearbyVenuesWithSuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
-                              FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
-                          andParameters:(NSDictionary *)params
+-(void)getNearbyVenuesWithLocation:(NSString *)coordinats
+                      SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
+                         FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
+                     andParameters:(NSDictionary *)params
 {
 //    [self setHeaders];
     
@@ -31,15 +31,30 @@
     [newParams setValue:self.secret forKey:@"client_secret"];
     [newParams setValue:@"20150503" forKey: @"v"];
     [newParams setValue:coordinats forKey:@"ll"];
-//    [newParams setValue:@"37.7858,-122.406" forKey:@"ll"];
     [newParams setValue:@"50" forKey:@"limit"];
-//    [newParams setValue:@"Chicago, IL" forKey:@"near"];
-//    NSString *accessToken  = [self classAttributes][kFOURSQUARE_ACCESS_TOKEN];
-//    if ([accessToken length] > 0)
-//        [parametersString appendFormat:@"&oauth_token=%@",accessToken];
-
-//    [self GET:@"venues/search" parameters:newParams success:successBlock failure:failBlock];
     [self GET:@"venues/explore" parameters:newParams success:successBlock failure:failBlock];
+}
+
+-(void)getMoreVenuesWithLocation:(NSString *)coordinats category:(Category *)category
+                    SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
+                         FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
+                     andParameters:(NSDictionary *)params
+{
+    //    [self setHeaders];
+    
+    NSMutableDictionary *newParams = [NSMutableDictionary dictionaryWithDictionary:params];
+    
+    [newParams setValue:self.clientId forKey:@"client_id"];
+    [newParams setValue:self.secret forKey:@"client_secret"];
+    [newParams setValue:@"20150503" forKey: @"v"];
+    [newParams setValue:coordinats forKey:@"ll"];
+    [newParams setValue:@"10" forKey:@"limit"];
+    [newParams setValue:category.identifier forKey:@"categoryId"];
+    //    NSString *accessToken  = [self classAttributes][kFOURSQUARE_ACCESS_TOKEN];
+    //    if ([accessToken length] > 0)
+    //        [parametersString appendFormat:@"&oauth_token=%@",accessToken];
+    
+    [self GET:@"venues/search" parameters:newParams success:successBlock failure:failBlock];
 }
 
 -(void)getVenueCategoriesWithSuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock

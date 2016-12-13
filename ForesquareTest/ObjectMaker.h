@@ -12,5 +12,6 @@
 
 - (NSArray *)convertToObjects:(NSArray *)venueObjects;
 - (NSArray *)convertToCategories:(NSArray *)categoryObjects;
+- (NSArray *)convertToAdditionalObjects:(NSArray *)venueObjects;
 
 @end
