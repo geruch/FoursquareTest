@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Location.h"
-#import "Category.h"
+#import "FTLocation.h"
+#import "FTCategory.h"
 
-@interface Venue : NSObject
+@interface FTVenue : NSObject
 
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *venueId;
-@property (nonatomic, strong) Location *location;
-@property (nonatomic, strong) Category *category;
+@property (nonatomic, strong) FTLocation *location;
+@property (nonatomic, strong) FTCategory *category;
 
 @end

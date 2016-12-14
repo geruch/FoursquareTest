@@ -6,9 +6,9 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "NetworkManager.h"
+#import "FTNetworkManager.h"
 
-@interface NetworkManager ()
+@interface FTNetworkManager ()
 
 @property (nonatomic, copy) NSString *clientId;
 @property (nonatomic, copy) NSString *secret;
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation NetworkManager
+@implementation FTNetworkManager
 
 -(void)getNearbyVenuesWithLocation:(NSString *)coordinats
                       SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
@@ -35,7 +35,7 @@
     [self GET:@"venues/explore" parameters:newParams success:successBlock failure:failBlock];
 }
 
--(void)getMoreVenuesWithLocation:(NSString *)coordinats category:(Category *)category
+-(void)getMoreVenuesWithLocation:(NSString *)coordinats category:(FTCategory *)category
                     SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
                          FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
                      andParameters:(NSDictionary *)params
@@ -70,9 +70,9 @@
     [self GET:@"venues/categories" parameters:newParams success:successBlock failure:failBlock];
 }
 
-+(NetworkManager *)sharedHttpClient
++(FTNetworkManager *)sharedHttpClient
 {
-    static NetworkManager *_sharedHttpClient = nil;
+    static FTNetworkManager *_sharedHttpClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedHttpClient = [[self alloc] initWithBaseURL:[NSURL URLWithString:@"https://api.foursquare.com/v2/"]];

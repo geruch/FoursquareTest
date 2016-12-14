@@ -1,5 +1,5 @@
 //
-//  ModelManager.h
+//  FTListModelManager.h
 //  ForesquareTest
 //
 //  Created by Команда Complex Systems on 09.12.16.
@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ModelManager : NSObject
+@interface FTListModelManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *categories;
 
-+ (ModelManager *)sharedManager;
++ (FTListModelManager *)sharedManager;
 
 @end

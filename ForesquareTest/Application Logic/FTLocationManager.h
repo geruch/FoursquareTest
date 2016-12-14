@@ -1,5 +1,5 @@
 //
-//  LocationManager.h
+//  FTLocationManager.h
 //  ForesquareTest
 //
 //  Created by Andrew Gerashenko on 12.12.16.
@@ -12,7 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "FTLocationManagerInterface.h"
 
-@interface LocationManager : NSObject
+@interface FTLocationManager : NSObject
 
 @property (nonatomic, strong) CLLocation *currentLocation;
 

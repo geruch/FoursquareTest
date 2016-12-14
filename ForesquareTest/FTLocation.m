@@ -6,8 +6,8 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "Location.h"
+#import "FTLocation.h"
 
-@implementation Location
+@implementation FTLocation
 
 @end

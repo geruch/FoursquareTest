@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AFNetworking.h"
-#import "Category.h"
+#import "FTCategory.h"
 
-@interface NetworkManager : AFHTTPSessionManager <NSURLSessionDownloadDelegate>
+@interface FTNetworkManager : AFHTTPSessionManager <NSURLSessionDownloadDelegate>
 
 -(void)getNearbyVenuesWithLocation:(NSString *)coordinats SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
                          FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
@@ -20,12 +20,12 @@
                               FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
                           andParameters:(NSDictionary *)params;
 
--(void)getMoreVenuesWithLocation:(NSString *)coordinats category:(Category *)category
+-(void)getMoreVenuesWithLocation:(NSString *)coordinats category:(FTCategory *)category
                     SuccessBlock:(void (^)(NSURLSessionDataTask *task, id responseObject))successBlock
                        FailBlock:(void (^)(NSURLSessionDataTask *task, NSError *error))failBlock
                    andParameters:(NSDictionary *)params;
 
-+ (NetworkManager *)sharedHttpClient;
++ (FTNetworkManager *)sharedHttpClient;
 + (void) setupFoursquareWithClientId:(NSString *)clientId
                               secret:(NSString *)secret
                          callbackURL:(NSString *)appURL;

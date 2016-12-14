@@ -1,5 +1,5 @@
 //
-//  TableHeader.h
+//  VenueCell.h
 //  ForesquareTest
 //
 //  Created by Andrew Gerashenko on 11.12.16.
@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Category.h"
+#import "FTVenue.h"
 
-@interface TableHeader : UIView
+@interface FTVenueCell : UITableViewCell
 
--(void)initWithCategory:(Category *)category;
+-(void)initWithVenue:(FTVenue *)venue;
 
 @end

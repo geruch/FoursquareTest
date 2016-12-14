@@ -1,25 +1,25 @@
 //
-//  TableHeader.m
+//  FTTableHeader.m
 //  ForesquareTest
 //
 //  Created by Andrew Gerashenko on 11.12.16.
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "TableHeader.h"
+#import "FTTableHeader.h"
 
 #import "UIImageView+AFNetworking.h"
 
-@interface TableHeader ()
+@interface FTTableHeader ()
 
 @property (nonatomic, weak) IBOutlet UILabel *categoryName;
 @property (nonatomic, weak) IBOutlet UIImageView *categoryPicture;
 
 @end
 
-@implementation TableHeader
+@implementation FTTableHeader
 
--(void)initWithCategory:(Category *)category
+-(void)initWithCategory:(FTCategory *)category
 {
     self.categoryName.text = category.name;
     if(!category.picture)
@@ -32,7 +32,7 @@
     }
 }
 
--(void)loadCategoryIcon:(Category *)category
+-(void)loadCategoryIcon:(FTCategory *)category
 {
     category.picture = [[UIImageView alloc] init];
     

@@ -9,26 +9,29 @@
 /* Begin PBXBuildFile section */
 		633660921E003591006F091F /* FTShowMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660901E003590006F091F /* FTShowMoreCell.m */; };
 		633660931E003591006F091F /* FTShowMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633660911E003590006F091F /* FTShowMoreCell.xib */; };
+		633660A21E01E4E5006F091F /* FTListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A11E01E4E5006F091F /* FTListPresenter.m */; };
+		633660A51E01E4FF006F091F /* FTListWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A41E01E4FF006F091F /* FTListWireframe.m */; };
+		633660A81E01E58B006F091F /* FTListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A71E01E58B006F091F /* FTListInteractor.m */; };
 		635E18161DFEBDC400FCFDE7 /* FTLoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */; };
 		635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */; };
-		639B53DF1DFD586C00AE6CF5 /* VenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53DD1DFD586C00AE6CF5 /* VenueCell.m */; };
-		639B53E01DFD586C00AE6CF5 /* VenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639B53DE1DFD586C00AE6CF5 /* VenueCell.xib */; };
-		639B53E31DFD981800AE6CF5 /* TableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53E21DFD981800AE6CF5 /* TableHeader.m */; };
-		639B53E51DFD99A300AE6CF5 /* TableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639B53E41DFD99A300AE6CF5 /* TableHeader.xib */; };
-		639B53EB1DFDF97000AE6CF5 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53EA1DFDF97000AE6CF5 /* LocationManager.m */; };
+		639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53DD1DFD586C00AE6CF5 /* FTVenueCell.m */; };
+		639B53E01DFD586C00AE6CF5 /* FTVenueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639B53DE1DFD586C00AE6CF5 /* FTVenueCell.xib */; };
+		639B53E31DFD981800AE6CF5 /* FTTableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53E21DFD981800AE6CF5 /* FTTableHeader.m */; };
+		639B53E51DFD99A300AE6CF5 /* FTTableHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639B53E41DFD99A300AE6CF5 /* FTTableHeader.xib */; };
+		639B53EB1DFDF97000AE6CF5 /* FTLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53EA1DFDF97000AE6CF5 /* FTLocationManager.m */; };
 		664A1EC01DF6C47700F9637C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EBF1DF6C47700F9637C /* main.m */; };
 		664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC21DF6C47700F9637C /* AppDelegate.m */; };
-		664A1EC61DF6C47700F9637C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC51DF6C47700F9637C /* ViewController.m */; };
+		664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */; };
 		664A1EC91DF6C47700F9637C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1EC71DF6C47700F9637C /* Main.storyboard */; };
 		664A1ECC1DF6C47700F9637C /* ForesquareTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */; };
 		664A1ECE1DF6C47700F9637C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664A1ECD1DF6C47700F9637C /* Assets.xcassets */; };
 		664A1ED11DF6C47700F9637C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */; };
-		664A1EDA1DF6C82D00F9637C /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1ED91DF6C82D00F9637C /* NetworkManager.m */; };
-		664A1EDD1DF6D00C00F9637C /* ObjectMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EDC1DF6D00C00F9637C /* ObjectMaker.m */; };
-		664A1EE01DF6D04400F9637C /* Venue.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EDF1DF6D04400F9637C /* Venue.m */; };
-		664A1EE31DF6D09C00F9637C /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EE21DF6D09C00F9637C /* Location.m */; };
-		6656B7BC1DF83CE30026BDA8 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 6656B7BB1DF83CE30026BDA8 /* Category.m */; };
-		66736D401DFA993000848F5C /* ModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66736D3F1DFA993000848F5C /* ModelManager.m */; };
+		664A1EDA1DF6C82D00F9637C /* FTNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1ED91DF6C82D00F9637C /* FTNetworkManager.m */; };
+		664A1EDD1DF6D00C00F9637C /* FTObjectMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EDC1DF6D00C00F9637C /* FTObjectMaker.m */; };
+		664A1EE01DF6D04400F9637C /* FTVenue.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EDF1DF6D04400F9637C /* FTVenue.m */; };
+		664A1EE31DF6D09C00F9637C /* FTLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EE21DF6D09C00F9637C /* FTLocation.m */; };
+		6656B7BC1DF83CE30026BDA8 /* FTCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6656B7BB1DF83CE30026BDA8 /* FTCategory.m */; };
+		66736D401DFA993000848F5C /* FTListModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 66736D3F1DFA993000848F5C /* FTListModelManager.m */; };
 		EE561E5E52FF69C166077E24 /* Pods_ForesquareTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0994D4AFBC2FBC2299017B /* Pods_ForesquareTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,41 +40,50 @@
 		6336608F1E003590006F091F /* FTShowMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTShowMoreCell.h; sourceTree = "<group>"; };
 		633660901E003590006F091F /* FTShowMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTShowMoreCell.m; sourceTree = "<group>"; };
 		633660911E003590006F091F /* FTShowMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTShowMoreCell.xib; sourceTree = "<group>"; };
+		633660A01E01E4E5006F091F /* FTListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListPresenter.h; sourceTree = "<group>"; };
+		633660A11E01E4E5006F091F /* FTListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTListPresenter.m; sourceTree = "<group>"; };
+		633660A31E01E4FF006F091F /* FTListWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListWireframe.h; sourceTree = "<group>"; };
+		633660A41E01E4FF006F091F /* FTListWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTListWireframe.m; sourceTree = "<group>"; };
+		633660A61E01E58B006F091F /* FTListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListInteractor.h; sourceTree = "<group>"; };
+		633660A71E01E58B006F091F /* FTListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTListInteractor.m; sourceTree = "<group>"; };
+		633660A91E01E74F006F091F /* FTListModuleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListModuleInterface.h; sourceTree = "<group>"; };
+		633660AC1E01E7E1006F091F /* FTListInputOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListInputOutputInterface.h; sourceTree = "<group>"; };
+		633660AF1E01E8DA006F091F /* FTListViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListViewInterface.h; sourceTree = "<group>"; };
 		635E18141DFEBDC400FCFDE7 /* FTLoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLoadingScreen.h; sourceTree = "<group>"; };
 		635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLoadingScreen.m; sourceTree = "<group>"; };
 		635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTLoadingScreen.xib; sourceTree = "<group>"; };
-		635E18191DFEC36100FCFDE7 /* FTLocationManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationManagerInterface.h; sourceTree = "<group>"; };
-		639B53DC1DFD586C00AE6CF5 /* VenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VenueCell.h; sourceTree = "<group>"; };
-		639B53DD1DFD586C00AE6CF5 /* VenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VenueCell.m; sourceTree = "<group>"; };
-		639B53DE1DFD586C00AE6CF5 /* VenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VenueCell.xib; sourceTree = "<group>"; };
-		639B53E11DFD981800AE6CF5 /* TableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableHeader.h; sourceTree = "<group>"; };
-		639B53E21DFD981800AE6CF5 /* TableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableHeader.m; sourceTree = "<group>"; };
-		639B53E41DFD99A300AE6CF5 /* TableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableHeader.xib; sourceTree = "<group>"; };
-		639B53E91DFDF97000AE6CF5 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
-		639B53EA1DFDF97000AE6CF5 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		635E18191DFEC36100FCFDE7 /* FTLocationManagerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTLocationManagerInterface.h; path = ../FTLocationManagerInterface.h; sourceTree = "<group>"; };
+		639B53DC1DFD586C00AE6CF5 /* FTVenueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTVenueCell.h; sourceTree = "<group>"; };
+		639B53DD1DFD586C00AE6CF5 /* FTVenueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTVenueCell.m; sourceTree = "<group>"; };
+		639B53DE1DFD586C00AE6CF5 /* FTVenueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTVenueCell.xib; sourceTree = "<group>"; };
+		639B53E11DFD981800AE6CF5 /* FTTableHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTTableHeader.h; sourceTree = "<group>"; };
+		639B53E21DFD981800AE6CF5 /* FTTableHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTTableHeader.m; sourceTree = "<group>"; };
+		639B53E41DFD99A300AE6CF5 /* FTTableHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTTableHeader.xib; sourceTree = "<group>"; };
+		639B53E91DFDF97000AE6CF5 /* FTLocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTLocationManager.h; path = ../FTLocationManager.h; sourceTree = "<group>"; };
+		639B53EA1DFDF97000AE6CF5 /* FTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTLocationManager.m; path = ../FTLocationManager.m; sourceTree = "<group>"; };
 		664A1EBB1DF6C47700F9637C /* ForesquareTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForesquareTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664A1EBF1DF6C47700F9637C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		664A1EC11DF6C47700F9637C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		664A1EC21DF6C47700F9637C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		664A1EC41DF6C47700F9637C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ForesquareTest/ViewController.h; sourceTree = SOURCE_ROOT; };
-		664A1EC51DF6C47700F9637C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ForesquareTest/ViewController.m; sourceTree = SOURCE_ROOT; };
+		664A1EC11DF6C47700F9637C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
+		664A1EC21DF6C47700F9637C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
+		664A1EC41DF6C47700F9637C /* FTListModuleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FTListModuleViewController.h; path = ForesquareTest/FTListModuleViewController.h; sourceTree = SOURCE_ROOT; };
+		664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FTListModuleViewController.m; path = ForesquareTest/FTListModuleViewController.m; sourceTree = SOURCE_ROOT; };
 		664A1EC81DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ForesquareTest.xcdatamodel; sourceTree = "<group>"; };
 		664A1ECD1DF6C47700F9637C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		664A1ED01DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		664A1ED21DF6C47700F9637C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		664A1ED81DF6C82D00F9637C /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NetworkManager.h; path = ../NetworkManager.h; sourceTree = "<group>"; };
-		664A1ED91DF6C82D00F9637C /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NetworkManager.m; path = ../NetworkManager.m; sourceTree = "<group>"; };
-		664A1EDB1DF6D00C00F9637C /* ObjectMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ObjectMaker.h; path = ../ObjectMaker.h; sourceTree = "<group>"; };
-		664A1EDC1DF6D00C00F9637C /* ObjectMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ObjectMaker.m; path = ../ObjectMaker.m; sourceTree = "<group>"; };
-		664A1EDE1DF6D04400F9637C /* Venue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Venue.h; path = ../Venue.h; sourceTree = "<group>"; };
-		664A1EDF1DF6D04400F9637C /* Venue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Venue.m; path = ../Venue.m; sourceTree = "<group>"; };
-		664A1EE11DF6D09C00F9637C /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = ../Location.h; sourceTree = "<group>"; };
-		664A1EE21DF6D09C00F9637C /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = ../Location.m; sourceTree = "<group>"; };
-		6656B7BA1DF83CE30026BDA8 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Category.h; path = ../Category.h; sourceTree = "<group>"; };
-		6656B7BB1DF83CE30026BDA8 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Category.m; path = ../Category.m; sourceTree = "<group>"; };
-		66736D3E1DFA993000848F5C /* ModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModelManager.h; path = ../ModelManager.h; sourceTree = "<group>"; };
-		66736D3F1DFA993000848F5C /* ModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModelManager.m; path = ../ModelManager.m; sourceTree = "<group>"; };
+		664A1ED81DF6C82D00F9637C /* FTNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTNetworkManager.h; path = ../../FTNetworkManager.h; sourceTree = "<group>"; };
+		664A1ED91DF6C82D00F9637C /* FTNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTNetworkManager.m; path = ../../FTNetworkManager.m; sourceTree = "<group>"; };
+		664A1EDB1DF6D00C00F9637C /* FTObjectMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTObjectMaker.h; path = ../../FTObjectMaker.h; sourceTree = "<group>"; };
+		664A1EDC1DF6D00C00F9637C /* FTObjectMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTObjectMaker.m; path = ../../FTObjectMaker.m; sourceTree = "<group>"; };
+		664A1EDE1DF6D04400F9637C /* FTVenue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTVenue.h; path = ../FTVenue.h; sourceTree = "<group>"; };
+		664A1EDF1DF6D04400F9637C /* FTVenue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTVenue.m; path = ../FTVenue.m; sourceTree = "<group>"; };
+		664A1EE11DF6D09C00F9637C /* FTLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTLocation.h; path = ../FTLocation.h; sourceTree = "<group>"; };
+		664A1EE21DF6D09C00F9637C /* FTLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTLocation.m; path = ../FTLocation.m; sourceTree = "<group>"; };
+		6656B7BA1DF83CE30026BDA8 /* FTCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTCategory.h; path = ../FTCategory.h; sourceTree = "<group>"; };
+		6656B7BB1DF83CE30026BDA8 /* FTCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTCategory.m; path = ../FTCategory.m; sourceTree = "<group>"; };
+		66736D3E1DFA993000848F5C /* FTListModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTListModelManager.h; path = ../../FTListModelManager.h; sourceTree = "<group>"; };
+		66736D3F1DFA993000848F5C /* FTListModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTListModelManager.m; path = ../../FTListModelManager.m; sourceTree = "<group>"; };
 		7F0994D4AFBC2FBC2299017B /* Pods_ForesquareTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForesquareTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA622109379C4D90C40B7D4F /* Pods-ForesquareTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForesquareTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-ForesquareTest/Pods-ForesquareTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,61 +108,178 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		633660941E01DEFD006F091F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				633660971E01E0EA006F091F /* Common */,
+				633660951E01DF3C006F091F /* Modules */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		633660951E01DF3C006F091F /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				633660961E01DF65006F091F /* List */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		633660961E01DF65006F091F /* List */ = {
+			isa = PBXGroup;
+			children = (
+				6336609B1E01E2AC006F091F /* Module Interface */,
+				6336609A1E01E281006F091F /* User Interface */,
+				639B53E81DFDF8A400AE6CF5 /* Application Logic */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		633660971E01E0EA006F091F /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				664A1EC11DF6C47700F9637C /* AppDelegate.h */,
+				664A1EC21DF6C47700F9637C /* AppDelegate.m */,
+				633660981E01E17F006F091F /* Store */,
+				639B53E61DFDD47000AE6CF5 /* Model */,
+				633660991E01E18E006F091F /* View */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		633660981E01E17F006F091F /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		633660991E01E18E006F091F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				664A1EC71DF6C47700F9637C /* Main.storyboard */,
+				664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6336609A1E01E281006F091F /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				6336609F1E01E3C2006F091F /* Wireframe */,
+				6336609E1E01E380006F091F /* Presenter */,
+				639B53E71DFDD4BD00AE6CF5 /* View */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		6336609B1E01E2AC006F091F /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				633660A91E01E74F006F091F /* FTListModuleInterface.h */,
+			);
+			path = "Module Interface";
+			sourceTree = "<group>";
+		};
+		6336609C1E01E301006F091F /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				664A1ED81DF6C82D00F9637C /* FTNetworkManager.h */,
+				664A1ED91DF6C82D00F9637C /* FTNetworkManager.m */,
+				639B53E91DFDF97000AE6CF5 /* FTLocationManager.h */,
+				639B53EA1DFDF97000AE6CF5 /* FTLocationManager.m */,
+				635E18191DFEC36100FCFDE7 /* FTLocationManagerInterface.h */,
+				66736D3E1DFA993000848F5C /* FTListModelManager.h */,
+				66736D3F1DFA993000848F5C /* FTListModelManager.m */,
+				664A1EDB1DF6D00C00F9637C /* FTObjectMaker.h */,
+				664A1EDC1DF6D00C00F9637C /* FTObjectMaker.m */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6336609D1E01E313006F091F /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				633660A61E01E58B006F091F /* FTListInteractor.h */,
+				633660A71E01E58B006F091F /* FTListInteractor.m */,
+				633660AC1E01E7E1006F091F /* FTListInputOutputInterface.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6336609E1E01E380006F091F /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				633660A01E01E4E5006F091F /* FTListPresenter.h */,
+				633660A11E01E4E5006F091F /* FTListPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6336609F1E01E3C2006F091F /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				633660A31E01E4FF006F091F /* FTListWireframe.h */,
+				633660A41E01E4FF006F091F /* FTListWireframe.m */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
 		639B53DB1DFD581D00AE6CF5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				639B53DC1DFD586C00AE6CF5 /* VenueCell.h */,
-				639B53DD1DFD586C00AE6CF5 /* VenueCell.m */,
-				639B53DE1DFD586C00AE6CF5 /* VenueCell.xib */,
-				639B53E11DFD981800AE6CF5 /* TableHeader.h */,
-				639B53E21DFD981800AE6CF5 /* TableHeader.m */,
-				639B53E41DFD99A300AE6CF5 /* TableHeader.xib */,
+				639B53DC1DFD586C00AE6CF5 /* FTVenueCell.h */,
+				639B53DD1DFD586C00AE6CF5 /* FTVenueCell.m */,
+				639B53DE1DFD586C00AE6CF5 /* FTVenueCell.xib */,
+				639B53E11DFD981800AE6CF5 /* FTTableHeader.h */,
+				639B53E21DFD981800AE6CF5 /* FTTableHeader.m */,
+				639B53E41DFD99A300AE6CF5 /* FTTableHeader.xib */,
 				6336608F1E003590006F091F /* FTShowMoreCell.h */,
 				633660901E003590006F091F /* FTShowMoreCell.m */,
 				633660911E003590006F091F /* FTShowMoreCell.xib */,
 			);
-			path = Cell;
+			name = Cell;
+			path = ../Cell;
 			sourceTree = "<group>";
 		};
 		639B53E61DFDD47000AE6CF5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				664A1EDE1DF6D04400F9637C /* Venue.h */,
-				664A1EDF1DF6D04400F9637C /* Venue.m */,
-				664A1EE11DF6D09C00F9637C /* Location.h */,
-				664A1EE21DF6D09C00F9637C /* Location.m */,
-				6656B7BA1DF83CE30026BDA8 /* Category.h */,
-				6656B7BB1DF83CE30026BDA8 /* Category.m */,
+				664A1EDE1DF6D04400F9637C /* FTVenue.h */,
+				664A1EDF1DF6D04400F9637C /* FTVenue.m */,
+				664A1EE11DF6D09C00F9637C /* FTLocation.h */,
+				664A1EE21DF6D09C00F9637C /* FTLocation.m */,
+				6656B7BA1DF83CE30026BDA8 /* FTCategory.h */,
+				6656B7BB1DF83CE30026BDA8 /* FTCategory.m */,
 			);
-			path = Model;
+			name = Model;
+			path = ../../Model;
 			sourceTree = "<group>";
 		};
 		639B53E71DFDD4BD00AE6CF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				664A1EC41DF6C47700F9637C /* ViewController.h */,
-				664A1EC51DF6C47700F9637C /* ViewController.m */,
+				664A1EC41DF6C47700F9637C /* FTListModuleViewController.h */,
+				664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */,
+				633660AF1E01E8DA006F091F /* FTListViewInterface.h */,
+				639B53DB1DFD581D00AE6CF5 /* Cell */,
 				635E18141DFEBDC400FCFDE7 /* FTLoadingScreen.h */,
 				635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */,
 				635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */,
 			);
-			path = View;
+			name = View;
+			path = ../../../../View;
 			sourceTree = "<group>";
 		};
 		639B53E81DFDF8A400AE6CF5 /* Application Logic */ = {
 			isa = PBXGroup;
 			children = (
-				664A1ED81DF6C82D00F9637C /* NetworkManager.h */,
-				664A1ED91DF6C82D00F9637C /* NetworkManager.m */,
-				664A1EDB1DF6D00C00F9637C /* ObjectMaker.h */,
-				664A1EDC1DF6D00C00F9637C /* ObjectMaker.m */,
-				66736D3E1DFA993000848F5C /* ModelManager.h */,
-				66736D3F1DFA993000848F5C /* ModelManager.m */,
-				639B53E91DFDF97000AE6CF5 /* LocationManager.h */,
-				639B53EA1DFDF97000AE6CF5 /* LocationManager.m */,
-				635E18191DFEC36100FCFDE7 /* FTLocationManagerInterface.h */,
+				6336609D1E01E313006F091F /* Interactor */,
+				6336609C1E01E301006F091F /* Manager */,
 			);
-			path = "Application Logic";
+			name = "Application Logic";
+			path = "../../../Application Logic";
 			sourceTree = "<group>";
 		};
 		664A1EB21DF6C47700F9637C = {
@@ -174,17 +303,9 @@
 		664A1EBD1DF6C47700F9637C /* ForesquareTest */ = {
 			isa = PBXGroup;
 			children = (
-				639B53E81DFDF8A400AE6CF5 /* Application Logic */,
-				639B53E71DFDD4BD00AE6CF5 /* View */,
-				639B53E61DFDD47000AE6CF5 /* Model */,
-				639B53DB1DFD581D00AE6CF5 /* Cell */,
-				664A1EC11DF6C47700F9637C /* AppDelegate.h */,
-				664A1EC21DF6C47700F9637C /* AppDelegate.m */,
-				664A1EC71DF6C47700F9637C /* Main.storyboard */,
+				633660941E01DEFD006F091F /* Classes */,
 				664A1ECD1DF6C47700F9637C /* Assets.xcassets */,
-				664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */,
 				664A1ED21DF6C47700F9637C /* Info.plist */,
-				664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */,
 				664A1EBE1DF6C47700F9637C /* Supporting Files */,
 			);
 			path = ForesquareTest;
@@ -270,8 +391,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				664A1ED11DF6C47700F9637C /* LaunchScreen.storyboard in Resources */,
-				639B53E51DFD99A300AE6CF5 /* TableHeader.xib in Resources */,
-				639B53E01DFD586C00AE6CF5 /* VenueCell.xib in Resources */,
+				639B53E51DFD99A300AE6CF5 /* FTTableHeader.xib in Resources */,
+				639B53E01DFD586C00AE6CF5 /* FTVenueCell.xib in Resources */,
 				664A1ECE1DF6C47700F9637C /* Assets.xcassets in Resources */,
 				635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */,
 				633660931E003591006F091F /* FTShowMoreCell.xib in Resources */,
@@ -335,20 +456,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				664A1ECC1DF6C47700F9637C /* ForesquareTest.xcdatamodeld in Sources */,
-				6656B7BC1DF83CE30026BDA8 /* Category.m in Sources */,
+				6656B7BC1DF83CE30026BDA8 /* FTCategory.m in Sources */,
 				635E18161DFEBDC400FCFDE7 /* FTLoadingScreen.m in Sources */,
-				664A1EDD1DF6D00C00F9637C /* ObjectMaker.m in Sources */,
-				66736D401DFA993000848F5C /* ModelManager.m in Sources */,
-				664A1EE01DF6D04400F9637C /* Venue.m in Sources */,
-				639B53E31DFD981800AE6CF5 /* TableHeader.m in Sources */,
-				664A1EC61DF6C47700F9637C /* ViewController.m in Sources */,
+				664A1EDD1DF6D00C00F9637C /* FTObjectMaker.m in Sources */,
+				66736D401DFA993000848F5C /* FTListModelManager.m in Sources */,
+				664A1EE01DF6D04400F9637C /* FTVenue.m in Sources */,
+				639B53E31DFD981800AE6CF5 /* FTTableHeader.m in Sources */,
+				664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */,
 				664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */,
-				664A1EDA1DF6C82D00F9637C /* NetworkManager.m in Sources */,
-				639B53DF1DFD586C00AE6CF5 /* VenueCell.m in Sources */,
-				664A1EE31DF6D09C00F9637C /* Location.m in Sources */,
+				664A1EDA1DF6C82D00F9637C /* FTNetworkManager.m in Sources */,
+				633660A51E01E4FF006F091F /* FTListWireframe.m in Sources */,
+				633660A21E01E4E5006F091F /* FTListPresenter.m in Sources */,
+				633660A81E01E58B006F091F /* FTListInteractor.m in Sources */,
+				639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */,
+				664A1EE31DF6D09C00F9637C /* FTLocation.m in Sources */,
 				633660921E003591006F091F /* FTShowMoreCell.m in Sources */,
 				664A1EC01DF6C47700F9637C /* main.m in Sources */,
-				639B53EB1DFDF97000AE6CF5 /* LocationManager.m in Sources */,
+				639B53EB1DFDF97000AE6CF5 /* FTLocationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +485,7 @@
 				664A1EC81DF6C47700F9637C /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 		664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */ = {
@@ -369,6 +494,7 @@
 				664A1ED01DF6C47700F9637C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -520,7 +646,8 @@
 				664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */,
 			);
 			currentVersion = 664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */;
-			path = ForesquareTest.xcdatamodeld;
+			name = ForesquareTest.xcdatamodeld;
+			path = ../../../ForesquareTest.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

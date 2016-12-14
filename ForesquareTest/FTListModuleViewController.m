@@ -6,32 +6,32 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "NetworkManager.h"
-#import "ObjectMaker.h"
-#import "Venue.h"
-#import "VenueCell.h"
+#import "FTListModuleViewController.h"
+#import "FTNetworkManager.h"
+#import "FTObjectMaker.h"
+#import "FTVenue.h"
+#import "FTVenueCell.h"
 #import "FTShowMoreCell.h"
-#import "ModelManager.h"
-#import "TableHeader.h"
+#import "FTListModelManager.h"
+#import "FTTableHeader.h"
 #import "FTLoadingScreen.h"
 
-#import "LocationManager.h"
+#import "FTLocationManager.h"
 #import "FTLocationManagerInterface.h"
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface ViewController () <FTLocationManagerInterface>
+@interface FTListModuleViewController () <FTLocationManagerInterface>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) FTLoadingScreen *loadingScreen;
 @property (nonatomic, strong) NSDictionary *tableData;
 @property (nonatomic, strong) NSDictionary *addButtonsForSections;
-@property (nonatomic, strong) LocationManager *locationManager;
+@property (nonatomic, strong) FTLocationManager *locationManager;
 
 @end
 
-@implementation ViewController
+@implementation FTListModuleViewController
 
 - (void)viewDidLoad
 {
@@ -39,7 +39,7 @@
     
     [self showLoader];
     
-    self.locationManager = [[LocationManager alloc] init];
+    self.locationManager = [[FTLocationManager alloc] init];
     self.locationManager.eventHandler = self;
     [self.locationManager launchManager:self];
     
@@ -50,7 +50,7 @@
 
 - (void)configureView
 {
-    [self.tableView registerNib:[UINib nibWithNibName:@"VenueCell" bundle:nil] forCellReuseIdentifier:@"venueCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"FTVenueCell" bundle:nil] forCellReuseIdentifier:@"venueCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"FTShowMoreCell" bundle:nil] forCellReuseIdentifier:@"showMoreCell"];
     
     self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -71,11 +71,11 @@
         userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
     }
     
-    [[NetworkManager sharedHttpClient] getNearbyVenuesWithLocation:userLocation SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [[FTNetworkManager sharedHttpClient] getNearbyVenuesWithLocation:userLocation SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
         
 //        NSLog(@"%@", responseObject);
         
-        ObjectMaker *fabric = [[ObjectMaker alloc] init];
+        FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
         NSArray *tmp = [[responseObject valueForKeyPath:@"response.groups.items"] objectAtIndex:0];
         NSArray *objects = [fabric convertToObjects:tmp];
         
@@ -92,14 +92,14 @@
 
 -(void)collectVenueCategories
 {
-    [[NetworkManager sharedHttpClient] getVenueCategoriesWithSuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [[FTNetworkManager sharedHttpClient] getVenueCategoriesWithSuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
         
 //        NSLog(@"%@", responseObject);
         
-        ObjectMaker *fabric = [[ObjectMaker alloc] init];
+        FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
         NSArray *tmp = [responseObject valueForKeyPath:@"response"];
         NSArray *objects = [fabric convertToCategories:tmp];
-        [[ModelManager sharedManager].categories addObjectsFromArray:objects];
+        [[FTListModelManager sharedManager].categories addObjectsFromArray:objects];
         
     } FailBlock:^(NSURLSessionDataTask *task, NSError *error) {
         NSString* errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
@@ -107,13 +107,13 @@
     } andParameters:nil];
 }
 
--(void)loadMoreVenuesWithCategory:(Category *)category forIndexPath:(nonnull NSIndexPath *)indexPath
+-(void)loadMoreVenuesWithCategory:(FTCategory *)category forIndexPath:(nonnull NSIndexPath *)indexPath
 {
     NSString *userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
     
-    [[NetworkManager sharedHttpClient] getMoreVenuesWithLocation:userLocation category:category SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [[FTNetworkManager sharedHttpClient] getMoreVenuesWithLocation:userLocation category:category SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
         
-        ObjectMaker *fabric = [[ObjectMaker alloc] init];
+        FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
         NSArray *tmp = [responseObject valueForKeyPath:@"response.venues"];
         NSArray *objects = [fabric convertToAdditionalObjects:tmp];
         self.tableData = [self injectObjectsToDictionary:objects forKey:category.name];
@@ -159,7 +159,7 @@
 -(NSDictionary *)transformToDictionary:(NSArray *)objects
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    for(Venue *venue in objects)
+    for(FTVenue *venue in objects)
     {
         NSMutableArray *tmp = [result objectForKey:venue.category.name];
         if(!tmp)
@@ -180,8 +180,13 @@
 {
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:self.tableData];
     NSMutableArray *tmp = [result objectForKey:key];
-    [tmp removeAllObjects];
-    [tmp addObjectsFromArray:objects];
+    for(FTVenue *object in objects)
+    {
+        if(![tmp containsObject:object])
+        {
+            [tmp addObjectsFromArray:objects];
+        }
+    }
     [self sortValuesInArray:tmp];
     return [NSDictionary dictionaryWithDictionary:result];
 }
@@ -250,9 +255,9 @@
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     NSString *testKey = [self.tableData.allKeys objectAtIndex:section];
-    Venue *testItem = [[self.tableData objectForKey:testKey] objectAtIndex:0];
+    FTVenue *testItem = [[self.tableData objectForKey:testKey] objectAtIndex:0];
     
-    TableHeader *view = [[[NSBundle mainBundle]loadNibNamed:@"TableHeader" owner:nil options:nil]objectAtIndex:0];
+    FTTableHeader *view = [[[NSBundle mainBundle]loadNibNamed:@"FTTableHeader" owner:nil options:nil]objectAtIndex:0];
     [view initWithCategory:testItem.category];
 
     return view;
@@ -293,9 +298,9 @@
 
 -(UITableViewCell *)configureVenueCell:(NSIndexPath *)indexPath
 {
-    VenueCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
+    FTVenueCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
     NSString *key = [self.tableData.allKeys objectAtIndex:indexPath.section];
-    Venue *item = [[self.tableData objectForKey:key] objectAtIndex:indexPath.row];
+    FTVenue *item = [[self.tableData objectForKey:key] objectAtIndex:indexPath.row];
     [cell initWithVenue:item];
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

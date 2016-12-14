@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ObjectMaker : NSObject
+@interface FTObjectMaker : NSObject
 
 - (NSArray *)convertToObjects:(NSArray *)venueObjects;
 - (NSArray *)convertToCategories:(NSArray *)categoryObjects;

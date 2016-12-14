@@ -1,17 +1,17 @@
 //
-//  ObjectMaker.m
+//  FTObjectMaker.m
 //  ForesquareTest
 //
 //  Created by Команда Complex Systems on 07.12.16.
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "ObjectMaker.h"
-#import "Venue.h"
+#import "FTObjectMaker.h"
+#import "FTVenue.h"
 
 #import "UIImageView+AFNetworking.h"
 
-@implementation ObjectMaker
+@implementation FTObjectMaker
 
 - (NSArray *)convertToObjects:(NSArray *)venueObjects
 {
@@ -20,7 +20,7 @@
     {
 
         NSDictionary *venue = [object valueForKey:@"venue"];
-        Venue *plainVenue = [[Venue alloc] init];
+        FTVenue *plainVenue = [[FTVenue alloc] init];
         plainVenue.venueId = venue[@"id"];
         plainVenue.name = venue[@"name"];
         
@@ -45,7 +45,7 @@
     for (NSDictionary *object in venueObjects)
     {
         
-        Venue *plainVenue = [[Venue alloc] init];
+        FTVenue *plainVenue = [[FTVenue alloc] init];
         plainVenue.venueId = object[@"id"];
         plainVenue.name = object[@"name"];
         [plainVenue.location setCoordinate:CLLocationCoordinate2DMake([object[@"location"][@"lat"] doubleValue], [object[@"location"][@"lng"] doubleValue])];
@@ -73,7 +73,7 @@
 
         for(NSDictionary *categoryObject in categoriesList)
         {
-        Category *category = [[Category alloc] init];
+        FTCategory *category = [[FTCategory alloc] init];
         
         category.identifier = categoryObject[@"id"];
         category.name = categoryObject[@"name"];

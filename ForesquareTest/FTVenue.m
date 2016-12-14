@@ -6,17 +6,17 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "Venue.h"
+#import "FTVenue.h"
 
-@implementation Venue
+@implementation FTVenue
 
 - (id)init
 {
     self = [super init];
     if (self)
     {
-        self.location = [[Location alloc] init];
-        self.category = [[Category alloc] init];
+        self.location = [[FTLocation alloc] init];
+        self.category = [[FTCategory alloc] init];
     }
     return self;
 }

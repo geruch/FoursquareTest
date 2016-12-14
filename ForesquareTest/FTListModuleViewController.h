@@ -8,7 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#import "FTListModuleInterface.h"
+#import "FTListViewInterface.h"
+
+@interface FTListModuleViewController : UIViewController <FTListViewInterface>
+
+@property (nonatomic, weak) id<FTListModuleInterface> eventHandler;
 
 @end
 

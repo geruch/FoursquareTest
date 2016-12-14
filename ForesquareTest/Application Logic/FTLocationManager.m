@@ -6,9 +6,9 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "LocationManager.h"
+#import "FTLocationManager.h"
 
-@interface LocationManager () <CLLocationManagerDelegate>
+@interface FTLocationManager () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
@@ -16,7 +16,7 @@
 
 @end
 
-@implementation LocationManager
+@implementation FTLocationManager
 
 -(void)launchManager:(UIViewController *)controller
 {

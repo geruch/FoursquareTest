@@ -6,8 +6,8 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
-#import "Category.h"
+#import "FTCategory.h"
 
-@implementation Category
+@implementation FTCategory
 
 @end
