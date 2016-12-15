@@ -12,6 +12,9 @@
 		633660A21E01E4E5006F091F /* FTListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A11E01E4E5006F091F /* FTListPresenter.m */; };
 		633660A51E01E4FF006F091F /* FTListWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A41E01E4FF006F091F /* FTListWireframe.m */; };
 		633660A81E01E58B006F091F /* FTListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A71E01E58B006F091F /* FTListInteractor.m */; };
+		633660B41E0335BE006F091F /* AppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660B31E0335BE006F091F /* AppDependencies.m */; };
+		633660B71E033D24006F091F /* FTRootNavControllerWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660B61E033D24006F091F /* FTRootNavControllerWireframe.m */; };
+		633660BC1E033E13006F091F /* FTRootNavController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633660BB1E033E13006F091F /* FTRootNavController.storyboard */; };
 		635E18161DFEBDC400FCFDE7 /* FTLoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */; };
 		635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */; };
 		639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53DD1DFD586C00AE6CF5 /* FTVenueCell.m */; };
@@ -49,6 +52,12 @@
 		633660A91E01E74F006F091F /* FTListModuleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListModuleInterface.h; sourceTree = "<group>"; };
 		633660AC1E01E7E1006F091F /* FTListInputOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListInputOutputInterface.h; sourceTree = "<group>"; };
 		633660AF1E01E8DA006F091F /* FTListViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTListViewInterface.h; sourceTree = "<group>"; };
+		633660B21E0335BE006F091F /* AppDependencies.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDependencies.h; sourceTree = "<group>"; };
+		633660B31E0335BE006F091F /* AppDependencies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDependencies.m; sourceTree = "<group>"; };
+		633660B51E033D24006F091F /* FTRootNavControllerWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRootNavControllerWireframe.h; sourceTree = "<group>"; };
+		633660B61E033D24006F091F /* FTRootNavControllerWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRootNavControllerWireframe.m; sourceTree = "<group>"; };
+		633660B81E033D70006F091F /* FTRootNavControllerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRootNavControllerInterface.h; sourceTree = "<group>"; };
+		633660BB1E033E13006F091F /* FTRootNavController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FTRootNavController.storyboard; sourceTree = "<group>"; };
 		635E18141DFEBDC400FCFDE7 /* FTLoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLoadingScreen.h; sourceTree = "<group>"; };
 		635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLoadingScreen.m; sourceTree = "<group>"; };
 		635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTLoadingScreen.xib; sourceTree = "<group>"; };
@@ -63,8 +72,8 @@
 		639B53EA1DFDF97000AE6CF5 /* FTLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTLocationManager.m; path = ../FTLocationManager.m; sourceTree = "<group>"; };
 		664A1EBB1DF6C47700F9637C /* ForesquareTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForesquareTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		664A1EBF1DF6C47700F9637C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		664A1EC11DF6C47700F9637C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../AppDelegate.h; sourceTree = "<group>"; };
-		664A1EC21DF6C47700F9637C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../AppDelegate.m; sourceTree = "<group>"; };
+		664A1EC11DF6C47700F9637C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		664A1EC21DF6C47700F9637C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		664A1EC41DF6C47700F9637C /* FTListModuleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FTListModuleViewController.h; path = ForesquareTest/FTListModuleViewController.h; sourceTree = SOURCE_ROOT; };
 		664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FTListModuleViewController.m; path = ForesquareTest/FTListModuleViewController.m; sourceTree = SOURCE_ROOT; };
 		664A1EC81DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,6 +120,10 @@
 		633660941E01DEFD006F091F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				664A1EC11DF6C47700F9637C /* AppDelegate.h */,
+				664A1EC21DF6C47700F9637C /* AppDelegate.m */,
+				633660B21E0335BE006F091F /* AppDependencies.h */,
+				633660B31E0335BE006F091F /* AppDependencies.m */,
 				633660971E01E0EA006F091F /* Common */,
 				633660951E01DF3C006F091F /* Modules */,
 			);
@@ -138,8 +151,6 @@
 		633660971E01E0EA006F091F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				664A1EC11DF6C47700F9637C /* AppDelegate.h */,
-				664A1EC21DF6C47700F9637C /* AppDelegate.m */,
 				633660981E01E17F006F091F /* Store */,
 				639B53E61DFDD47000AE6CF5 /* Model */,
 				633660991E01E18E006F091F /* View */,
@@ -160,6 +171,10 @@
 			children = (
 				664A1EC71DF6C47700F9637C /* Main.storyboard */,
 				664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */,
+				633660B51E033D24006F091F /* FTRootNavControllerWireframe.h */,
+				633660B61E033D24006F091F /* FTRootNavControllerWireframe.m */,
+				633660B81E033D70006F091F /* FTRootNavControllerInterface.h */,
+				633660BB1E033E13006F091F /* FTRootNavController.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -394,6 +409,7 @@
 				639B53E51DFD99A300AE6CF5 /* FTTableHeader.xib in Resources */,
 				639B53E01DFD586C00AE6CF5 /* FTVenueCell.xib in Resources */,
 				664A1ECE1DF6C47700F9637C /* Assets.xcassets in Resources */,
+				633660BC1E033E13006F091F /* FTRootNavController.storyboard in Resources */,
 				635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */,
 				633660931E003591006F091F /* FTShowMoreCell.xib in Resources */,
 				664A1EC91DF6C47700F9637C /* Main.storyboard in Resources */,
@@ -461,6 +477,7 @@
 				664A1EDD1DF6D00C00F9637C /* FTObjectMaker.m in Sources */,
 				66736D401DFA993000848F5C /* FTListModelManager.m in Sources */,
 				664A1EE01DF6D04400F9637C /* FTVenue.m in Sources */,
+				633660B71E033D24006F091F /* FTRootNavControllerWireframe.m in Sources */,
 				639B53E31DFD981800AE6CF5 /* FTTableHeader.m in Sources */,
 				664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */,
 				664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */,
@@ -470,6 +487,7 @@
 				633660A81E01E58B006F091F /* FTListInteractor.m in Sources */,
 				639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */,
 				664A1EE31DF6D09C00F9637C /* FTLocation.m in Sources */,
+				633660B41E0335BE006F091F /* AppDependencies.m in Sources */,
 				633660921E003591006F091F /* FTShowMoreCell.m in Sources */,
 				664A1EC01DF6C47700F9637C /* main.m in Sources */,
 				639B53EB1DFDF97000AE6CF5 /* FTLocationManager.m in Sources */,

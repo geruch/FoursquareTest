@@ -18,7 +18,8 @@
 
 @implementation FTLocationManager
 
--(void)launchManager:(UIViewController *)controller
+//-(void)launchManager:(UIViewController *)controller
+-(void)launchManager
 {
     self.locationManager = [[CLLocationManager alloc]init];
     self.isFirstAttempt = YES;
@@ -44,14 +45,14 @@
                                                                        message:@"Пожалуйста, включите геолокацию для этого приложения"
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
-        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
-                                                                style:UIAlertActionStyleDefault
-                                                              handler:^(UIAlertAction * action) {
-                                                                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-                                                              }];
-        
-        [alert addAction:defaultAction];
-        [controller presentViewController:alert animated:YES completion:nil];
+//        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK"
+//                                                                style:UIAlertActionStyleDefault
+//                                                              handler:^(UIAlertAction * action) {
+//                                                                   [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+//                                                              }];
+//        
+//        [alert addAction:defaultAction];
+//        [controller presentViewController:alert animated:YES completion:nil];
     }
 }
 

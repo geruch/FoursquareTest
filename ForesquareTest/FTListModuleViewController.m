@@ -21,13 +21,12 @@
 
 #import <CoreLocation/CoreLocation.h>
 
-@interface FTListModuleViewController () <FTLocationManagerInterface>
+@interface FTListModuleViewController ()
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) FTLoadingScreen *loadingScreen;
 @property (nonatomic, strong) NSDictionary *tableData;
 @property (nonatomic, strong) NSDictionary *addButtonsForSections;
-@property (nonatomic, strong) FTLocationManager *locationManager;
 
 @end
 
@@ -38,14 +37,11 @@
     [super viewDidLoad];
     
     [self showLoader];
-    
-    self.locationManager = [[FTLocationManager alloc] init];
-    self.locationManager.eventHandler = self;
-    [self.locationManager launchManager:self];
+    [self.eventHandler updateLocation];
     
     [self configureView];
     
-    [self collectVenueCategories];
+//    [self collectVenueCategories];
 }
 
 - (void)configureView
@@ -59,75 +55,50 @@
     self.tableData = [NSDictionary dictionary];
 }
 
--(void)collectVenuesData
+- (void)showListData:(NSDictionary *)data
 {
-    NSString *userLocation;
-    if(!self.locationManager.currentLocation)
-    {
-        userLocation = @"37.7858,-122.406";
-    }
-    else
-    {
-        userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
-    }
-    
-    [[FTNetworkManager sharedHttpClient] getNearbyVenuesWithLocation:userLocation SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
-        
-//        NSLog(@"%@", responseObject);
-        
-        FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
-        NSArray *tmp = [[responseObject valueForKeyPath:@"response.groups.items"] objectAtIndex:0];
-        NSArray *objects = [fabric convertToObjects:tmp];
-        
-        self.tableData = [self transformToDictionary:objects];
-        self.addButtonsForSections = [self configureSectionsButtons];
-        [self.tableView reloadData];
-        [self hideLoader];
-        
-    } FailBlock:^(NSURLSessionDataTask *task, NSError *error) {
-        NSString* errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        NSLog(@"Error response: %@",errorResponse);
-    } andParameters:nil];
+    self.tableData = data;
+    self.addButtonsForSections = [self configureSectionsButtons];
+//    self.tableView.hidden = NO;
+//    self.tableData = data;
+    [self reloadEntries];
+    [self hideLoader];
 }
 
--(void)collectVenueCategories
+- (void)insertAdditionalVenues:(NSArray *)tmp forIndexPath:(NSIndexPath *)indexPath
 {
-    [[FTNetworkManager sharedHttpClient] getVenueCategoriesWithSuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
-        
-//        NSLog(@"%@", responseObject);
-        
-        FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
-        NSArray *tmp = [responseObject valueForKeyPath:@"response"];
-        NSArray *objects = [fabric convertToCategories:tmp];
-        [[FTListModelManager sharedManager].categories addObjectsFromArray:objects];
-        
-    } FailBlock:^(NSURLSessionDataTask *task, NSError *error) {
-        NSString* errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        NSLog(@"Error response: %@",errorResponse);
-    } andParameters:nil];
+    self.tableData = [self injectObjectsToDictionary:tmp
+                                                  forKey:[[self.tableData.allKeys objectAtIndex:indexPath.section] name]];
+    
+    NSIndexSet *sectionToReload = [NSIndexSet indexSetWithIndex:indexPath.section];
+    //        [self.tableView reloadSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView beginUpdates];
+        [self.tableView deleteSections:sectionToReload withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView insertSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView endUpdates];
 }
 
--(void)loadMoreVenuesWithCategory:(FTCategory *)category forIndexPath:(nonnull NSIndexPath *)indexPath
+
+-(NSDictionary *)injectObjectsToDictionary:(NSArray *)objects forKey:(NSString *)key
 {
-    NSString *userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:self.tableData];
+    NSMutableArray *tmp = [result objectForKey:key];
+    for(FTVenue *object in objects)
+    {
+        if(![tmp containsObject:object])
+        {
+            [tmp addObjectsFromArray:objects];
+        }
+    }
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"location.distance" ascending:YES];
+    [tmp sortUsingDescriptors:@[sort]];
     
-    [[FTNetworkManager sharedHttpClient] getMoreVenuesWithLocation:userLocation category:category SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
-        NSArray *tmp = [responseObject valueForKeyPath:@"response.venues"];
-        NSArray *objects = [fabric convertToAdditionalObjects:tmp];
-        self.tableData = [self injectObjectsToDictionary:objects forKey:category.name];
-        NSIndexSet *sectionToReload = [NSIndexSet indexSetWithIndex:indexPath.section];
-//        [self.tableView reloadSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableView beginUpdates];
-            [self.tableView deleteSections:sectionToReload withRowAnimation:UITableViewRowAnimationNone];
-            [self.tableView insertSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
-        [self.tableView endUpdates];
-        
-    } FailBlock:^(NSURLSessionDataTask *task, NSError *error) {
-        NSString* errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
-        NSLog(@"Error response: %@",errorResponse);
-    } andParameters:nil];
+    return [NSDictionary dictionaryWithDictionary:result];
+}
+
+- (void)reloadEntries
+{
+    [self.tableView reloadData];
 }
 
 -(NSDictionary *)configureSectionsButtons
@@ -154,60 +125,6 @@
 {
     [self.loadingScreen stopLoadingIndication];
     [self.loadingScreen removeFromSuperview];
-}
-
--(NSDictionary *)transformToDictionary:(NSArray *)objects
-{
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    for(FTVenue *venue in objects)
-    {
-        NSMutableArray *tmp = [result objectForKey:venue.category.name];
-        if(!tmp)
-        {
-           tmp = [NSMutableArray array];
-        }
-
-        [tmp addObject:venue];
-        [result setValue:tmp forKey:venue.category.name];
-    }
-    
-    [self sortValuesInDictionary:result];
-    
-    return [NSDictionary dictionaryWithDictionary:result];
-}
-
--(NSDictionary *)injectObjectsToDictionary:(NSArray *)objects forKey:(NSString *)key
-{
-    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:self.tableData];
-    NSMutableArray *tmp = [result objectForKey:key];
-    for(FTVenue *object in objects)
-    {
-        if(![tmp containsObject:object])
-        {
-            [tmp addObjectsFromArray:objects];
-        }
-    }
-    [self sortValuesInArray:tmp];
-    return [NSDictionary dictionaryWithDictionary:result];
-}
-
--(NSMutableDictionary *)sortValuesInDictionary:(NSMutableDictionary *)dictionary
-{
-    for(NSString *key in dictionary.allKeys)
-    {
-        NSMutableArray *values = [dictionary objectForKey:key];
-        if(values.count>1)
-        {
-            [self sortValuesInArray:values];
-        }
-    }
-    return dictionary;
-}
-
--(void)sortValuesInArray:(NSMutableArray *)array
-{
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"location.distance" ascending:YES];
-    [array sortUsingDescriptors:@[sort]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -286,10 +203,13 @@
     NSArray *sectionItems = [self.tableData objectForKey:key];
     if(indexPath.row == [sectionItems count])
     {
-        [self loadMoreVenuesWithCategory:[[sectionItems firstObject] category] forIndexPath:indexPath];
+        
+//        [self loadMoreVenuesWithCategory:[[sectionItems firstObject] category] forIndexPath:indexPath];
         NSMutableDictionary *tmp = [NSMutableDictionary dictionaryWithDictionary:self.addButtonsForSections];
         [tmp setValue:[NSNumber numberWithBool:NO] forKey:key];
         self.addButtonsForSections = [NSDictionary dictionaryWithDictionary:tmp];
+        [self.eventHandler loadAdditionalVenuesWithCategory:[[sectionItems firstObject] category]
+                                               forIndexPath:indexPath];
     }
 
 }
@@ -313,13 +233,6 @@
 {
     FTShowMoreCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"showMoreCell"forIndexPath:indexPath];
     return cell;
-}
-
-#pragma mark - FTLocationManagerInterface
-
--(void)updateUserLocation
-{
-    [self collectVenuesData];
 }
 
 @end

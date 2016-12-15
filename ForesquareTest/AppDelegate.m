@@ -7,20 +7,28 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDependencies.h"
 #import "FTNetworkManager.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) AppDependencies *dependencies;
 
 @end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
 
     [FTNetworkManager setupFoursquareWithClientId:@"5P1OVCFK0CCVCQ5GBBCWRFGUVNX5R4WGKHL2DGJGZ32FDFKT"
                                          secret:@"UPZJO0A0XL44IHCD1KQBMAYGCZ45Z03BORJZZJXELPWHPSAR"
                                     callbackURL:@"testapp123://foursquare"];
+    
+    self.dependencies = [[AppDependencies alloc] init];
+    [self.dependencies installRootViewControllerIntoWindow:self.window];
+    
     return YES;
 }
 
@@ -58,7 +66,8 @@
 
 @synthesize persistentContainer = _persistentContainer;
 
-- (NSPersistentContainer *)persistentContainer {
+- (NSPersistentContainer *)persistentContainer
+{
     // The persistent container for the application. This implementation creates and returns a container, having loaded the store for the application to it.
     @synchronized (self) {
         if (_persistentContainer == nil) {
@@ -88,7 +97,8 @@
 
 #pragma mark - Core Data Saving support
 
-- (void)saveContext {
+- (void)saveContext
+{
     NSManagedObjectContext *context = self.persistentContainer.viewContext;
     NSError *error = nil;
     if ([context hasChanges] && ![context save:&error]) {

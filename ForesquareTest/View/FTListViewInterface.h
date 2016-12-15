@@ -10,6 +10,7 @@
 
 @protocol FTListViewInterface <NSObject>
 
+- (void)insertAdditionalVenues:(NSArray *)tmp forIndexPath:(NSIndexPath *)indexPath;
 - (void)showListData:(NSDictionary *)data;
 - (void)reloadEntries;
 

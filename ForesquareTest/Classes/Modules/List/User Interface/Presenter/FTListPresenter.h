@@ -15,10 +15,10 @@
 @protocol FTListViewInterface;
 @class FTListWireframe;
 
-@interface FTListPresenter : NSObject<FTListModuleInterface>
+@interface FTListPresenter : NSObject<FTListModuleInterface, FTListOutputInterface>
 
-@property (nonatomic, strong) id<FTListInputInterface>    billInteractor;
-@property (nonatomic, strong) FTListWireframe*        billWireframe;
+@property (nonatomic, strong) id<FTListInputInterface>    listInteractor;
+@property (nonatomic, strong) FTListWireframe*        listWireframe;
 
 @property (nonatomic, strong) FTListModuleViewController<FTListViewInterface> *userInterface;
 

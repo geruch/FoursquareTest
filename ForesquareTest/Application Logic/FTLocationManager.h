@@ -18,6 +18,7 @@
 
 @property (nonatomic, strong) id<FTLocationManagerInterface> eventHandler;
 
--(void)launchManager:(UIViewController *)controller;
+//-(void)launchManager:(UIViewController *)controller;
+-(void)launchManager;
 
 @end

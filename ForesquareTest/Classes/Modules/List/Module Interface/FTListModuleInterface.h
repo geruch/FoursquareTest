@@ -6,10 +6,12 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
+#import "FTCategory.h"
 #import <Foundation/Foundation.h>
 
 @protocol FTListModuleInterface <NSObject>
 
-- (void)updateView;
+- (void)updateLocation;
+- (void)loadAdditionalVenuesWithCategory:(FTCategory *)category forIndexPath:(NSIndexPath *)indexPath;
 
 @end

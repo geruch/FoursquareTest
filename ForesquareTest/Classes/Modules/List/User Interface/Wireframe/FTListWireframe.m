@@ -7,7 +7,42 @@
 //
 
 #import "FTListWireframe.h"
+#import "FTListModuleViewController.h"
+#import "FTListPresenter.h"
+
+static NSString *ListViewControllerIdentifier = @"FTListViewController";
+static NSString *ListViewControllerStoryboardName = @"FTListView";
+
+@interface FTListWireframe ()
+
+@property (nonatomic, strong) FTListModuleViewController *listViewController;
+
+@end
 
 @implementation FTListWireframe
+
+- (UIViewController *)configuredViewController
+{
+    FTListModuleViewController *viewController = [self listViewControllerFromStoryboard];
+    viewController.eventHandler = self.listPresenter;
+    self.listPresenter.userInterface = viewController;
+    self.listViewController = viewController;
+    return viewController;
+}
+
+- (FTListModuleViewController *)listViewControllerFromStoryboard
+{
+    UIStoryboard *storyboard = [self actualStoryboard];
+    FTListModuleViewController *viewController = [storyboard instantiateViewControllerWithIdentifier:ListViewControllerIdentifier];
+    
+    return viewController;
+}
+
+- (UIStoryboard *)actualStoryboard
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:ListViewControllerStoryboardName bundle:[NSBundle mainBundle]];
+    
+    return storyboard;
+}
 
 @end
