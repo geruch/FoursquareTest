@@ -13,9 +13,10 @@
         <scene sceneID="PpE-nT-3IE">
             <objects>
                 <navigationController storyboardIdentifier="RootNavController" id="WNf-Wa-jWI" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9Eq-cR-R3x">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="9Eq-cR-R3x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7J1-VV-GGX" userLabel="First Responder" sceneMemberID="firstResponder"/>

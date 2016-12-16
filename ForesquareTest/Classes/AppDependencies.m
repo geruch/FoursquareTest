@@ -11,10 +11,11 @@
 #import "FTListInteractor.h"
 #import "FTListPresenter.h"
 #import "FTRootNavControllerWireframe.h"
+#import "FTListWireframe.h"
 
 @interface AppDependencies ()
 
-@property (nonatomic, strong) FTRootNavControllerWireframe *navWireFrame;
+@property (nonatomic, strong) FTListWireframe *listWireframe;
 
 @end
 
@@ -32,13 +33,14 @@
 
 - (void)installRootViewControllerIntoWindow:(UIWindow *)window
 {
-    [self.navWireFrame navigationControllerFromWindow:window];
+//    [self.navWireFrame navigationControllerFromWindow:window];
+    [self.listWireframe presentListInterfaceFromWindow:window];
 }
 
 - (void)configureDependencies
 {
     //Navigation Controller
-    self.navWireFrame = [[FTRootNavControllerWireframe alloc] init];
+    FTRootNavControllerWireframe *rootWireFrame = [[FTRootNavControllerWireframe alloc] init];
     
     //List module
     FTListWireframe *listWireframe = [[FTListWireframe alloc] init];
@@ -50,6 +52,8 @@
     listPresenter.listInteractor = listInteractor;
     listPresenter.listWireframe = listWireframe;
     listWireframe.listPresenter = listPresenter;
+    listWireframe.rootWireframe = rootWireFrame;
+    self.listWireframe = listWireframe;
 }
 
 @end

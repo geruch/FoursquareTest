@@ -68,7 +68,7 @@
 - (void)insertAdditionalVenues:(NSArray *)tmp forIndexPath:(NSIndexPath *)indexPath
 {
     self.tableData = [self injectObjectsToDictionary:tmp
-                                                  forKey:[[self.tableData.allKeys objectAtIndex:indexPath.section] name]];
+                                              forKey:[self.tableData.allKeys objectAtIndex:indexPath.section]];
     
     NSIndexSet *sectionToReload = [NSIndexSet indexSetWithIndex:indexPath.section];
     //        [self.tableView reloadSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
@@ -85,15 +85,32 @@
     NSMutableArray *tmp = [result objectForKey:key];
     for(FTVenue *object in objects)
     {
-        if(![tmp containsObject:object])
+        BOOL check = [self isContainVenue:object inArray:tmp];
+        if(!check)
         {
-            [tmp addObjectsFromArray:objects];
+            [tmp addObject:object];
         }
     }
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"location.distance" ascending:YES];
     [tmp sortUsingDescriptors:@[sort]];
     
     return [NSDictionary dictionaryWithDictionary:result];
+}
+
+- (BOOL)isContainVenue:(FTVenue *)venue inArray:(NSMutableArray *)array
+{
+    BOOL result = NO;
+    
+    for(FTVenue *item in array)
+    {
+        if([item.venueId isEqualToString:venue.venueId])
+        {
+            result = YES;
+            break;
+        }
+    }
+    
+    return result;
 }
 
 - (void)reloadEntries
@@ -116,7 +133,6 @@
 {
     self.loadingScreen = [[[NSBundle mainBundle]loadNibNamed:@"FTLoadingScreen" owner:nil options:nil] objectAtIndex:0];
     self.loadingScreen.frame = self.view.frame;
-//    [self.loadingScreen init];
     [self.view addSubview:self.loadingScreen];
     [self.loadingScreen startLoadingIndication];
 }

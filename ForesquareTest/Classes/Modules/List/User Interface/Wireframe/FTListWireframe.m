@@ -21,6 +21,17 @@ static NSString *ListViewControllerStoryboardName = @"FTListView";
 
 @implementation FTListWireframe
 
+- (void)presentListInterfaceFromWindow:(UIWindow *)window
+{
+    FTListModuleViewController *listViewController = [self listViewControllerFromStoryboard];
+    listViewController.eventHandler = self.listPresenter;
+    self.listPresenter.userInterface = listViewController;
+    self.listViewController = listViewController;
+    
+    [self.rootWireframe showRootViewController:listViewController
+                                      inWindow:window];
+}
+
 - (UIViewController *)configuredViewController
 {
     FTListModuleViewController *viewController = [self listViewControllerFromStoryboard];

@@ -12,7 +12,7 @@
         <!--List Module View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="FTListModuleViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FTListViewController" id="BYZ-38-t0r" customClass="FTListModuleViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -38,6 +38,7 @@
                             <constraint firstItem="dKF-xv-brt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q0p-OX-2gT"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <connections>
                         <outlet property="tableView" destination="dKF-xv-brt" id="zVV-6j-NdY"/>
                     </connections>

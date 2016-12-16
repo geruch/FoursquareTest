@@ -25,7 +25,7 @@
 		664A1EC01DF6C47700F9637C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EBF1DF6C47700F9637C /* main.m */; };
 		664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC21DF6C47700F9637C /* AppDelegate.m */; };
 		664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */; };
-		664A1EC91DF6C47700F9637C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1EC71DF6C47700F9637C /* Main.storyboard */; };
+		664A1EC91DF6C47700F9637C /* FTListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1EC71DF6C47700F9637C /* FTListView.storyboard */; };
 		664A1ECC1DF6C47700F9637C /* ForesquareTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */; };
 		664A1ECE1DF6C47700F9637C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664A1ECD1DF6C47700F9637C /* Assets.xcassets */; };
 		664A1ED11DF6C47700F9637C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */; };
@@ -76,7 +76,7 @@
 		664A1EC21DF6C47700F9637C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
 		664A1EC41DF6C47700F9637C /* FTListModuleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FTListModuleViewController.h; path = ForesquareTest/FTListModuleViewController.h; sourceTree = SOURCE_ROOT; };
 		664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FTListModuleViewController.m; path = ForesquareTest/FTListModuleViewController.m; sourceTree = SOURCE_ROOT; };
-		664A1EC81DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		664A1EC81DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FTListView.storyboard; sourceTree = "<group>"; };
 		664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ForesquareTest.xcdatamodel; sourceTree = "<group>"; };
 		664A1ECD1DF6C47700F9637C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		664A1ED01DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -169,7 +169,6 @@
 		633660991E01E18E006F091F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				664A1EC71DF6C47700F9637C /* Main.storyboard */,
 				664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */,
 				633660B51E033D24006F091F /* FTRootNavControllerWireframe.h */,
 				633660B61E033D24006F091F /* FTRootNavControllerWireframe.m */,
@@ -275,6 +274,7 @@
 		639B53E71DFDD4BD00AE6CF5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				664A1EC71DF6C47700F9637C /* FTListView.storyboard */,
 				664A1EC41DF6C47700F9637C /* FTListModuleViewController.h */,
 				664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */,
 				633660AF1E01E8DA006F091F /* FTListViewInterface.h */,
@@ -412,7 +412,7 @@
 				633660BC1E033E13006F091F /* FTRootNavController.storyboard in Resources */,
 				635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */,
 				633660931E003591006F091F /* FTShowMoreCell.xib in Resources */,
-				664A1EC91DF6C47700F9637C /* Main.storyboard in Resources */,
+				664A1EC91DF6C47700F9637C /* FTListView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,13 +497,13 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		664A1EC71DF6C47700F9637C /* Main.storyboard */ = {
+		664A1EC71DF6C47700F9637C /* FTListView.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				664A1EC81DF6C47700F9637C /* Base */,
 			);
-			name = Main.storyboard;
-			path = ../../..;
+			name = FTListView.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */ = {
