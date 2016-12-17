@@ -56,4 +56,10 @@ static NSString *ListViewControllerStoryboardName = @"FTListView";
     return storyboard;
 }
 
+
+- (void)showFilterScreen
+{
+    [self.filterWireframe presentFilterFromViewController:self.listViewController];
+}
+
 @end

@@ -51,4 +51,9 @@
     [self.listInteractor updateLocationData];
 }
 
+-(void)selectCategory
+{
+    [self.listWireframe showFilterScreen];
+}
+
 @end

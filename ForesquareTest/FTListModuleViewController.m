@@ -41,11 +41,23 @@
     
     [self configureView];
     
-//    [self collectVenueCategories];
+//    [self.eventHandler collectVenueCategories];
 }
 
 - (void)configureView
 {
+    UIBarButtonItem *selectCategory = [[UIBarButtonItem alloc] initWithTitle:@"SEL"
+                                                       style:UIBarButtonItemStylePlain
+                                                      target:self
+                                                      action:@selector(didTapCategoryButton:)];
+    
+//    UIBarButtonItem *changeLocation = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+//                                                                                target:self
+//                                                                                action:@selector(didTapLoactionButton:)];
+    
+    self.navigationItem.rightBarButtonItem = selectCategory;
+//    self.navigationItem.leftBarButtonItem = changeLocation;
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"FTVenueCell" bundle:nil] forCellReuseIdentifier:@"venueCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"FTShowMoreCell" bundle:nil] forCellReuseIdentifier:@"showMoreCell"];
     
@@ -59,8 +71,7 @@
 {
     self.tableData = data;
     self.addButtonsForSections = [self configureSectionsButtons];
-//    self.tableView.hidden = NO;
-//    self.tableData = data;
+
     [self reloadEntries];
     [self hideLoader];
 }
@@ -147,6 +158,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)didTapCategoryButton:(id)sender
+{
+    [self.eventHandler selectCategory];
 }
 
 #pragma mark - UITableViewDelegate and DataSource Methods

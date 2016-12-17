@@ -13,5 +13,7 @@
 
 - (void)updateLocation;
 - (void)loadAdditionalVenuesWithCategory:(FTCategory *)category forIndexPath:(NSIndexPath *)indexPath;
+- (void)selectCategory;
+- (void)collectVenueCategories;
 
 @end

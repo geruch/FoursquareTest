@@ -42,6 +42,8 @@
         NSArray *tmp = [[responseObject valueForKeyPath:@"response.groups.items"] objectAtIndex:0];
         NSArray *objects = [fabric convertToObjects:tmp];
         
+        NSDictionary *test = [self fillDictionaryWithCategories];
+        
         NSDictionary *dictionary = [self transformToDictionary:objects];
         
         [self.output didUpdateVenuesItems:dictionary];
@@ -70,6 +72,7 @@
         NSArray *tmp = [responseObject valueForKeyPath:@"response.venues"];
         NSArray *objects = [fabric convertToAdditionalObjects:tmp];
         
+        
         [self.output didGetAdditionalVenues:objects forIndexPath:indexPath];
         
         
@@ -89,6 +92,8 @@
         NSArray *tmp = [responseObject valueForKeyPath:@"response"];
         NSArray *objects = [fabric convertToCategories:tmp];
         [[FTListModelManager sharedManager].categories addObjectsFromArray:objects];
+        
+        [self updateVenuesItems];
         
     } FailBlock:^(NSURLSessionDataTask *task, NSError *error) {
         NSString* errorResponse = [[NSString alloc] initWithData:(NSData *)error.userInfo[AFNetworkingOperationFailingURLResponseDataErrorKey] encoding:NSUTF8StringEncoding];
@@ -117,6 +122,19 @@
     return [NSDictionary dictionaryWithDictionary:result];
 }
 
+-(NSDictionary *)fillDictionaryWithCategories
+{
+    NSArray *objects = [FTListModelManager sharedManager].categories;
+    
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    for(FTCategory *category in objects)
+    {
+        [result setObject:[NSNull null] forKey:category.name];
+    }
+    
+    return [NSDictionary dictionaryWithDictionary:result];
+}
+
 -(NSMutableDictionary *)sortValuesInDictionary:(NSMutableDictionary *)dictionary
 {
     for(NSString *key in dictionary.allKeys)
@@ -140,7 +158,7 @@
 
 -(void)updateUserLocation
 {
-    [self updateVenuesItems];
+//    [self updateVenuesItems];
     [self updateCategories];
 }
 

@@ -15,6 +15,13 @@
 		633660B41E0335BE006F091F /* AppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660B31E0335BE006F091F /* AppDependencies.m */; };
 		633660B71E033D24006F091F /* FTRootNavControllerWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660B61E033D24006F091F /* FTRootNavControllerWireframe.m */; };
 		633660BC1E033E13006F091F /* FTRootNavController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 633660BB1E033E13006F091F /* FTRootNavController.storyboard */; };
+		6337155D1E047E6200887366 /* FTFilterModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6337155A1E047E6200887366 /* FTFilterModuleViewController.m */; };
+		6337155E1E047E6200887366 /* FTFilterModuleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6337155B1E047E6200887366 /* FTFilterModuleViewController.storyboard */; };
+		633715611E047E9400887366 /* FTFilterPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633715601E047E9400887366 /* FTFilterPresenter.m */; };
+		633715641E047EB500887366 /* FTFilterWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 633715631E047EB500887366 /* FTFilterWireframe.m */; };
+		6337156A1E047F6C00887366 /* FTFilterInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 633715691E047F6C00887366 /* FTFilterInteractor.m */; };
+		633715721E05CD4E00887366 /* FTCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 633715701E05CD4E00887366 /* FTCategoryCell.m */; };
+		633715731E05CD4E00887366 /* FTCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633715711E05CD4E00887366 /* FTCategoryCell.xib */; };
 		635E18161DFEBDC400FCFDE7 /* FTLoadingScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */; };
 		635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */; };
 		639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 639B53DD1DFD586C00AE6CF5 /* FTVenueCell.m */; };
@@ -58,6 +65,21 @@
 		633660B61E033D24006F091F /* FTRootNavControllerWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTRootNavControllerWireframe.m; sourceTree = "<group>"; };
 		633660B81E033D70006F091F /* FTRootNavControllerInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTRootNavControllerInterface.h; sourceTree = "<group>"; };
 		633660BB1E033E13006F091F /* FTRootNavController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FTRootNavController.storyboard; sourceTree = "<group>"; };
+		633715591E047E6200887366 /* FTFilterModuleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterModuleViewController.h; sourceTree = "<group>"; };
+		6337155A1E047E6200887366 /* FTFilterModuleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTFilterModuleViewController.m; sourceTree = "<group>"; };
+		6337155B1E047E6200887366 /* FTFilterModuleViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FTFilterModuleViewController.storyboard; sourceTree = "<group>"; };
+		6337155C1E047E6200887366 /* FTFilterViewInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterViewInterface.h; sourceTree = "<group>"; };
+		6337155F1E047E9400887366 /* FTFilterPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterPresenter.h; sourceTree = "<group>"; };
+		633715601E047E9400887366 /* FTFilterPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTFilterPresenter.m; sourceTree = "<group>"; };
+		633715621E047EB500887366 /* FTFilterWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterWireframe.h; sourceTree = "<group>"; };
+		633715631E047EB500887366 /* FTFilterWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTFilterWireframe.m; sourceTree = "<group>"; };
+		633715651E047F1B00887366 /* FTFilterModuleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterModuleInterface.h; sourceTree = "<group>"; };
+		633715681E047F6C00887366 /* FTFilterInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterInteractor.h; sourceTree = "<group>"; };
+		633715691E047F6C00887366 /* FTFilterInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTFilterInteractor.m; sourceTree = "<group>"; };
+		6337156B1E047F8A00887366 /* FTFilterInputOutputInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTFilterInputOutputInterface.h; sourceTree = "<group>"; };
+		6337156F1E05CD4E00887366 /* FTCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTCategoryCell.h; sourceTree = "<group>"; };
+		633715701E05CD4E00887366 /* FTCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTCategoryCell.m; sourceTree = "<group>"; };
+		633715711E05CD4E00887366 /* FTCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTCategoryCell.xib; sourceTree = "<group>"; };
 		635E18141DFEBDC400FCFDE7 /* FTLoadingScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLoadingScreen.h; sourceTree = "<group>"; };
 		635E18151DFEBDC400FCFDE7 /* FTLoadingScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLoadingScreen.m; sourceTree = "<group>"; };
 		635E18171DFEBDDE00FCFDE7 /* FTLoadingScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTLoadingScreen.xib; sourceTree = "<group>"; };
@@ -133,6 +155,7 @@
 		633660951E01DF3C006F091F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				633715441E047B8600887366 /* Filter */,
 				633660961E01DF65006F091F /* List */,
 			);
 			path = Modules;
@@ -141,9 +164,9 @@
 		633660961E01DF65006F091F /* List */ = {
 			isa = PBXGroup;
 			children = (
+				639B53E81DFDF8A400AE6CF5 /* Application Logic */,
 				6336609B1E01E2AC006F091F /* Module Interface */,
 				6336609A1E01E281006F091F /* User Interface */,
-				639B53E81DFDF8A400AE6CF5 /* Application Logic */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -238,6 +261,100 @@
 				633660A41E01E4FF006F091F /* FTListWireframe.m */,
 			);
 			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		633715441E047B8600887366 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				633715481E047BEB00887366 /* Application Logic */,
+				633715461E047BAC00887366 /* Module Interface */,
+				633715471E047BD000887366 /* User Interface */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		633715461E047BAC00887366 /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				633715651E047F1B00887366 /* FTFilterModuleInterface.h */,
+			);
+			path = "Module Interface";
+			sourceTree = "<group>";
+		};
+		633715471E047BD000887366 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				6337154B1E047C6200887366 /* Wireframe */,
+				6337154C1E047C7200887366 /* Presenter */,
+				6337154D1E047C7900887366 /* View */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		633715481E047BEB00887366 /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				6337154A1E047C1F00887366 /* Manager */,
+				633715491E047C1600887366 /* Interactor */,
+			);
+			path = "Application Logic";
+			sourceTree = "<group>";
+		};
+		633715491E047C1600887366 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				633715681E047F6C00887366 /* FTFilterInteractor.h */,
+				633715691E047F6C00887366 /* FTFilterInteractor.m */,
+				6337156B1E047F8A00887366 /* FTFilterInputOutputInterface.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6337154A1E047C1F00887366 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		6337154B1E047C6200887366 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				633715621E047EB500887366 /* FTFilterWireframe.h */,
+				633715631E047EB500887366 /* FTFilterWireframe.m */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		6337154C1E047C7200887366 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6337155F1E047E9400887366 /* FTFilterPresenter.h */,
+				633715601E047E9400887366 /* FTFilterPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		6337154D1E047C7900887366 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6337156E1E05C64900887366 /* Cell */,
+				633715591E047E6200887366 /* FTFilterModuleViewController.h */,
+				6337155A1E047E6200887366 /* FTFilterModuleViewController.m */,
+				6337155B1E047E6200887366 /* FTFilterModuleViewController.storyboard */,
+				6337155C1E047E6200887366 /* FTFilterViewInterface.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6337156E1E05C64900887366 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6337156F1E05CD4E00887366 /* FTCategoryCell.h */,
+				633715701E05CD4E00887366 /* FTCategoryCell.m */,
+				633715711E05CD4E00887366 /* FTCategoryCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		639B53DB1DFD581D00AE6CF5 /* Cell */ = {
@@ -406,8 +523,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				664A1ED11DF6C47700F9637C /* LaunchScreen.storyboard in Resources */,
+				633715731E05CD4E00887366 /* FTCategoryCell.xib in Resources */,
 				639B53E51DFD99A300AE6CF5 /* FTTableHeader.xib in Resources */,
 				639B53E01DFD586C00AE6CF5 /* FTVenueCell.xib in Resources */,
+				6337155E1E047E6200887366 /* FTFilterModuleViewController.storyboard in Resources */,
 				664A1ECE1DF6C47700F9637C /* Assets.xcassets in Resources */,
 				633660BC1E033E13006F091F /* FTRootNavController.storyboard in Resources */,
 				635E18181DFEBDDE00FCFDE7 /* FTLoadingScreen.xib in Resources */,
@@ -472,19 +591,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				664A1ECC1DF6C47700F9637C /* ForesquareTest.xcdatamodeld in Sources */,
+				633715721E05CD4E00887366 /* FTCategoryCell.m in Sources */,
 				6656B7BC1DF83CE30026BDA8 /* FTCategory.m in Sources */,
 				635E18161DFEBDC400FCFDE7 /* FTLoadingScreen.m in Sources */,
 				664A1EDD1DF6D00C00F9637C /* FTObjectMaker.m in Sources */,
 				66736D401DFA993000848F5C /* FTListModelManager.m in Sources */,
 				664A1EE01DF6D04400F9637C /* FTVenue.m in Sources */,
+				633715611E047E9400887366 /* FTFilterPresenter.m in Sources */,
 				633660B71E033D24006F091F /* FTRootNavControllerWireframe.m in Sources */,
+				633715641E047EB500887366 /* FTFilterWireframe.m in Sources */,
 				639B53E31DFD981800AE6CF5 /* FTTableHeader.m in Sources */,
+				6337156A1E047F6C00887366 /* FTFilterInteractor.m in Sources */,
 				664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */,
 				664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */,
 				664A1EDA1DF6C82D00F9637C /* FTNetworkManager.m in Sources */,
 				633660A51E01E4FF006F091F /* FTListWireframe.m in Sources */,
 				633660A21E01E4E5006F091F /* FTListPresenter.m in Sources */,
 				633660A81E01E58B006F091F /* FTListInteractor.m in Sources */,
+				6337155D1E047E6200887366 /* FTFilterModuleViewController.m in Sources */,
 				639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */,
 				664A1EE31DF6D09C00F9637C /* FTLocation.m in Sources */,
 				633660B41E0335BE006F091F /* AppDependencies.m in Sources */,
