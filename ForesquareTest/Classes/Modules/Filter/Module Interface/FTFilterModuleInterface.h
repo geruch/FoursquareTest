@@ -10,4 +10,7 @@
 
 @protocol FTFilterModuleInterface <NSObject>
 
+-(void)saveCategoriesFilter:(NSMutableDictionary *)dictionary;
+-(void)applyFilter;
+
 @end

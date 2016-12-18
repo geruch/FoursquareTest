@@ -16,6 +16,7 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *tableData;
 @property (nonatomic, strong) NSMutableDictionary *filterData;
+@property (nonatomic, strong) NSMutableArray *categories;
 @property (nonatomic) NSInteger counter;
 
 @end
@@ -33,7 +34,8 @@
     [super viewDidLoad];
     
     self.tableData = [NSMutableDictionary dictionary];
-    self.filterData = [NSMutableDictionary dictionary];
+//    self.filterData = [NSMutableDictionary dictionary];
+    self.filterData = [FTListModelManager sharedManager].filter;
     
     [self configureView];
 }
@@ -58,19 +60,19 @@
 {
     self.navigationItem.title = @"Select Categories";
     
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave
                                                                              target:self
-                                                                             action:@selector(didTapAddButton:)];
+                                                                             action:@selector(didTapSaveButton:)];
     
-    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+    UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel
                                                                              target:self
-                                                                             action:@selector(didTapDeleteButton:)];
+                                                                             action:@selector(didTapCancelButton:)];
     
-    self.navigationItem.rightBarButtonItem = addItem;
-    self.navigationItem.leftBarButtonItem = deleteItem;
+    self.navigationItem.rightBarButtonItem = saveItem;
+    self.navigationItem.leftBarButtonItem = cancelItem;
     
-    NSMutableArray *categories = [[FTListModelManager sharedManager] categories];
-    for(FTCategory *item in categories)
+    self.categories = [FTListModelManager sharedManager].categories;
+    for(FTCategory *item in self.categories)
     {
         [self.tableData setObject:item forKey:item.name];
         [self.filterData setObject:[NSNumber numberWithBool:YES] forKey:item.name];
@@ -85,14 +87,14 @@
 }
 
 
-- (void)didTapAddButton:(id)sender
+- (void)didTapSaveButton:(id)sender
 {
-//    [self.eventHandler addNewEntry];
+    [self.eventHandler saveCategoriesFilter:self.filterData];
 }
 
-- (void)didTapDeleteButton:(id)sender
+- (void)didTapCancelButton:(id)sender
 {
-//    self.tableView.allowsMultipleSelectionDuringEditing = YES;
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)showNoContentMessage
@@ -100,20 +102,22 @@
     self.tableView.hidden = YES;
 }
 
-
 - (void)reloadEntries
 {
     [self.tableView reloadData];
 }
 
+-(void)dismissView
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 #pragma mark - UITableViewDelegate and DataSource Methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.tableData.allKeys.count;
+    return 1;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -151,13 +155,16 @@
         [self.filterData setObject:[NSNumber numberWithBool:YES] forKey:cell.name];
         self.counter++;
     }
+    
+    [FTListModelManager sharedManager].filter = self.filterData;
 }
 
 - (UITableViewCell *)configureCategorySelectionCell:(NSIndexPath *)indexPath
 {
     FTCategoryCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"categoryCell" forIndexPath:indexPath];
     
-    FTCategory *category = [self.tableData objectForKey:[self.tableData.allKeys objectAtIndex:indexPath.row]];
+    NSString *key = [[self.categories objectAtIndex:indexPath.row] name];
+    FTCategory *category = [self.tableData objectForKey:key];
     [cell initWithCategory:category];
     if([[self.filterData objectForKey:category.name] boolValue])
     {

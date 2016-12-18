@@ -26,7 +26,9 @@
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) FTLoadingScreen *loadingScreen;
 @property (nonatomic, strong) NSDictionary *tableData;
+@property (nonatomic, strong) NSDictionary *baseViewData;
 @property (nonatomic, strong) NSDictionary *addButtonsForSections;
+@property (nonatomic, strong) NSArray *categories;
 
 @end
 
@@ -42,6 +44,16 @@
     [self configureView];
     
 //    [self.eventHandler collectVenueCategories];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    if(self.tableData.allKeys.count>0)
+    {
+        [self applyFilterToData];
+        [self reloadEntries];
+    }
 }
 
 - (void)configureView
@@ -70,19 +82,49 @@
 - (void)showListData:(NSDictionary *)data
 {
     self.tableData = data;
+    self.baseViewData = [NSDictionary dictionaryWithDictionary:data];
+    self.categories = [NSArray arrayWithArray:[FTListModelManager sharedManager].categories];
+    
     self.addButtonsForSections = [self configureSectionsButtons];
 
     [self reloadEntries];
     [self hideLoader];
 }
 
+-(void)applyFilterToData
+{
+    NSMutableDictionary *tmp = [NSMutableDictionary dictionaryWithDictionary:self.baseViewData];
+    for(NSString *key in [FTListModelManager sharedManager].filter.allKeys)
+    {
+        if(![[[FTListModelManager sharedManager].filter objectForKey:key] boolValue])
+        {
+            [tmp removeObjectForKey:key];
+        }
+    }
+    self.tableData = [NSDictionary dictionaryWithDictionary:tmp];
+    
+    NSMutableArray *newCategories = [NSMutableArray arrayWithArray:[FTListModelManager sharedManager].categories];
+    for(FTCategory *category in [FTListModelManager sharedManager].categories)
+    {
+        if(![self.tableData.allKeys containsObject:category.name])
+        {
+            [newCategories removeObject:category];
+        }
+    }
+    self.categories = [NSArray arrayWithArray:newCategories];
+}
+
 - (void)insertAdditionalVenues:(NSArray *)tmp forIndexPath:(NSIndexPath *)indexPath
 {
-    self.tableData = [self injectObjectsToDictionary:tmp
-                                              forKey:[self.tableData.allKeys objectAtIndex:indexPath.section]];
+    self.tableData = [self injectObjects:tmp
+                            toDictionary:self.tableData
+                                  forKey:[self.tableData.allKeys objectAtIndex:indexPath.section]];
+    
+    self.baseViewData = [self injectObjects:tmp
+                            toDictionary:self.baseViewData
+                                  forKey:[self.baseViewData.allKeys objectAtIndex:indexPath.section]];
     
     NSIndexSet *sectionToReload = [NSIndexSet indexSetWithIndex:indexPath.section];
-    //        [self.tableView reloadSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
     [self.tableView beginUpdates];
         [self.tableView deleteSections:sectionToReload withRowAnimation:UITableViewRowAnimationNone];
         [self.tableView insertSections:sectionToReload withRowAnimation:UITableViewRowAnimationBottom];
@@ -90,10 +132,17 @@
 }
 
 
--(NSDictionary *)injectObjectsToDictionary:(NSArray *)objects forKey:(NSString *)key
+-(NSDictionary *)injectObjects:(NSArray *)objects
+                  toDictionary:(NSDictionary *)dictionary
+                        forKey:(NSString *)key
 {
-    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:self.tableData];
+//    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:self.tableData];
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     NSMutableArray *tmp = [result objectForKey:key];
+    if(tmp==[NSNull null])
+    {
+        tmp = [NSMutableArray array];
+    }
     for(FTVenue *object in objects)
     {
         BOOL check = [self isContainVenue:object inArray:tmp];
@@ -104,6 +153,8 @@
     }
     NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"location.distance" ascending:YES];
     [tmp sortUsingDescriptors:@[sort]];
+    
+    [result setObject:tmp forKey:key];
     
     return [NSDictionary dictionaryWithDictionary:result];
 }
@@ -185,14 +236,21 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSString *key = [self.tableData.allKeys objectAtIndex:section];
-    NSArray *tmp = [NSArray arrayWithArray:[self.tableData objectForKey:key]];
-    if([[self.addButtonsForSections objectForKey:key] boolValue])
+    if([self.tableData objectForKey:key]!=[NSNull null])
     {
-        return tmp.count + 1;
+        NSArray *tmp = [NSArray arrayWithArray:[self.tableData objectForKey:key]];
+        if([[self.addButtonsForSections objectForKey:key] boolValue])
+        {
+            return tmp.count + 1;
+        }
+        else
+        {
+            return tmp.count;
+        }
     }
     else
     {
-        return tmp.count;
+        return 1;
     }
 }
 
@@ -203,11 +261,12 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    NSString *testKey = [self.tableData.allKeys objectAtIndex:section];
-    FTVenue *testItem = [[self.tableData objectForKey:testKey] objectAtIndex:0];
+//    NSString *testKey = [self.tableData.allKeys objectAtIndex:section];
+//    FTVenue *testItem = [[self.tableData objectForKey:testKey] objectAtIndex:0];
+    FTCategory *category = [self.categories objectAtIndex:section];
     
     FTTableHeader *view = [[[NSBundle mainBundle]loadNibNamed:@"FTTableHeader" owner:nil options:nil]objectAtIndex:0];
-    [view initWithCategory:testItem.category];
+    [view initWithCategory:category];
 
     return view;
 }
@@ -219,7 +278,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.row < [[self.tableData objectForKey:[self.tableData.allKeys objectAtIndex:indexPath.section]] count])
+    NSMutableArray *sectionItems = [self.tableData objectForKey:[self.tableData.allKeys objectAtIndex:indexPath.section]];
+    if(sectionItems!=[NSNull null] && indexPath.row < sectionItems.count)
     {
         return [self configureVenueCell:indexPath];
     }
@@ -233,15 +293,13 @@
 {
     NSString *key = [self.tableData.allKeys objectAtIndex:indexPath.section];
     NSArray *sectionItems = [self.tableData objectForKey:key];
-    if(indexPath.row == [sectionItems count])
+    if(sectionItems==[NSNull null] || indexPath.row == sectionItems.count)
     {
-        
-//        [self loadMoreVenuesWithCategory:[[sectionItems firstObject] category] forIndexPath:indexPath];
         NSMutableDictionary *tmp = [NSMutableDictionary dictionaryWithDictionary:self.addButtonsForSections];
         [tmp setValue:[NSNumber numberWithBool:NO] forKey:key];
         self.addButtonsForSections = [NSDictionary dictionaryWithDictionary:tmp];
-        [self.eventHandler loadAdditionalVenuesWithCategory:[[sectionItems firstObject] category]
-                                               forIndexPath:indexPath];
+        [self.eventHandler loadAdditionalVenuesWithCategory:[self.categories objectAtIndex:indexPath.section]
+                                                        forIndexPath:indexPath];
     }
 
 }
@@ -254,7 +312,7 @@
     NSString *key = [self.tableData.allKeys objectAtIndex:indexPath.section];
     FTVenue *item = [[self.tableData objectForKey:key] objectAtIndex:indexPath.row];
     [cell initWithVenue:item];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
 //    cell.delegate = self;
     

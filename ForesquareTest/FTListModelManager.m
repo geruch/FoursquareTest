@@ -19,6 +19,7 @@
     dispatch_once(&onceToken, ^{
         sharedManager = [[self alloc] init];
         sharedManager.categories = [NSMutableArray array];
+        sharedManager.filter = [NSMutableDictionary dictionary];
     });
     return sharedManager;
 }

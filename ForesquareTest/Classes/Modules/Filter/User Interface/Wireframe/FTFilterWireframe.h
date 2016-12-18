@@ -17,5 +17,6 @@
 
 -(void)dismissFilter;
 -(void)presentFilterFromViewController:(UIViewController *)viewController;
+-(void)pushFilterToNavigationController:(UINavigationController *)navigationController;
 
 @end

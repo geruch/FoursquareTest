@@ -6,9 +6,10 @@
 //  Copyright © 2016 Команда Complex Systems. All rights reserved.
 //
 
+#import "FTFilterInputOutputInterface.h"
 #import <Foundation/Foundation.h>
 
-@interface FTFilterInteractor : NSObject
+@interface FTFilterInteractor : NSObject<FTFilterInputInterface>
 
 - (void)saveSelectedCategories:(NSDictionary *)categories;
 

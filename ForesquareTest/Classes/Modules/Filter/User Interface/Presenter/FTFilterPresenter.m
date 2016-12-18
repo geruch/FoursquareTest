@@ -10,4 +10,11 @@
 
 @implementation FTFilterPresenter
 
+-(void)saveCategoriesFilter:(NSMutableDictionary *)dictionary
+{
+    [self.filterInteractor saveCategoriesFilter:dictionary];
+    [self.userInterface dismissView];
+}
+
+
 @end

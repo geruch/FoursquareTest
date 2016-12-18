@@ -14,7 +14,7 @@
 
 @interface FTFilterPresenter : NSObject <FTFilterModuleInterface>
 
-@property (nonatomic, strong) FTFilterModuleViewController *userInterface;
+@property (nonatomic, strong) FTFilterModuleViewController<FTFilterViewInterface> *userInterface;
 
 @property (nonatomic, strong) FTFilterInteractor *filterInteractor;
 @property (nonatomic, strong) FTFilterWireframe *filterWireframe;

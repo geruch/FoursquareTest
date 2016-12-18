@@ -39,6 +39,7 @@
                             <constraint firstItem="qBe-5m-QOk" firstAttribute="top" secondItem="JUd-h9-EmB" secondAttribute="bottom" id="tBl-8g-AQd"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="tableView" destination="qBe-5m-QOk" id="4JD-HI-bW4"/>
                     </connections>

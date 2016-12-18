@@ -8,12 +8,14 @@
 
 #import "FTFilterWireframe.h"
 #import "FTFilterModuleViewController.h"
+#import "FTFilterPresenter.h"
 
 static NSString *FilterViewControllerIdentifier = @"FTFilterModuleViewController";
 
 @interface FTFilterWireframe ()
 
 @property (nonatomic, strong) UIViewController *presentedViewController;
+@property (nonatomic, strong) FTFilterModuleViewController *filterViewController;
 
 @end
 
@@ -29,6 +31,22 @@ static NSString *FilterViewControllerIdentifier = @"FTFilterModuleViewController
     
     [viewController presentViewController:filterViewController animated:YES completion:nil];
     self.presentedViewController = viewController;
+}
+
+- (void)pushFilterToNavigationController:(UINavigationController *)navigationController
+{
+    UIViewController *viewController = [self configuredViewController];
+    [navigationController pushViewController:viewController animated:YES];
+}
+
+- (UIViewController *)configuredViewController
+{
+    FTFilterModuleViewController *filterViewController = [self filterViewControllerFromStoryboard];
+    filterViewController.eventHandler = self.filterPresenter;
+    self.filterPresenter.userInterface = filterViewController;
+    self.filterViewController = filterViewController;
+    
+    return filterViewController;
 }
 
 - (UIStoryboard *)actualStoryboard

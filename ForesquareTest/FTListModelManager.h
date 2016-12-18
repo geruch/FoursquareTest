@@ -11,6 +11,7 @@
 @interface FTListModelManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *categories;
+@property (nonatomic, strong) NSMutableDictionary *filter;
 
 + (FTListModelManager *)sharedManager;
 

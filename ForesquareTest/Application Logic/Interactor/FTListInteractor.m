@@ -42,8 +42,6 @@
         NSArray *tmp = [[responseObject valueForKeyPath:@"response.groups.items"] objectAtIndex:0];
         NSArray *objects = [fabric convertToObjects:tmp];
         
-        NSDictionary *test = [self fillDictionaryWithCategories];
-        
         NSDictionary *dictionary = [self transformToDictionary:objects];
         
         [self.output didUpdateVenuesItems:dictionary];
@@ -90,7 +88,9 @@
         
         FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
         NSArray *tmp = [responseObject valueForKeyPath:@"response"];
-        NSArray *objects = [fabric convertToCategories:tmp];
+        NSMutableArray *objects = [NSMutableArray arrayWithArray:[fabric convertToCategories:tmp]];
+        NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+        [objects sortUsingDescriptors:@[sort]];
         [[FTListModelManager sharedManager].categories addObjectsFromArray:objects];
         
         [self updateVenuesItems];
@@ -104,11 +104,12 @@
 
 -(NSDictionary *)transformToDictionary:(NSArray *)objects
 {
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
+    NSDictionary *test = [self fillDictionaryWithCategories];
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:test];
     for(FTVenue *venue in objects)
     {
         NSMutableArray *tmp = [result objectForKey:venue.category.name];
-        if(!tmp)
+        if(tmp == [NSNull null])
         {
             tmp = [NSMutableArray array];
         }
@@ -140,7 +141,7 @@
     for(NSString *key in dictionary.allKeys)
     {
         NSMutableArray *values = [dictionary objectForKey:key];
-        if(values.count>1)
+        if(values!=[NSNull null] && values.count>1)
         {
             [self sortValuesInArray:values];
         }

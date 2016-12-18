@@ -10,4 +10,6 @@
 
 @protocol FTFilterViewInterface <NSObject>
 
+-(void)dismissView;
+
 @end

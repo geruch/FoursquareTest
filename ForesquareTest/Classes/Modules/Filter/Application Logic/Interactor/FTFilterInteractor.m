@@ -7,11 +7,19 @@
 //
 
 #import "FTFilterInteractor.h"
+#import "FTListModelManager.h"
 
 @interface FTFilterInteractor ()
+
+@property (nonatomic, strong) FTListModelManager *manager;
 
 @end
 
 @implementation FTFilterInteractor
+
+-(void)saveCategoriesFilter:(NSMutableDictionary *)dictionary
+{
+    [FTListModelManager sharedManager].filter = dictionary;
+}
 
 @end
