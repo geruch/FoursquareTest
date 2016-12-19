@@ -40,7 +40,6 @@
 		664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC21DF6C47700F9637C /* AppDelegate.m */; };
 		664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */; };
 		664A1EC91DF6C47700F9637C /* FTListView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1EC71DF6C47700F9637C /* FTListView.storyboard */; };
-		664A1ECC1DF6C47700F9637C /* ForesquareTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */; };
 		664A1ECE1DF6C47700F9637C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 664A1ECD1DF6C47700F9637C /* Assets.xcassets */; };
 		664A1ED11DF6C47700F9637C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 664A1ECF1DF6C47700F9637C /* LaunchScreen.storyboard */; };
 		664A1EDA1DF6C82D00F9637C /* FTNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 664A1ED91DF6C82D00F9637C /* FTNetworkManager.m */; };
@@ -121,7 +120,6 @@
 		664A1EC41DF6C47700F9637C /* FTListModuleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FTListModuleViewController.h; path = ForesquareTest/FTListModuleViewController.h; sourceTree = SOURCE_ROOT; };
 		664A1EC51DF6C47700F9637C /* FTListModuleViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = FTListModuleViewController.m; path = ForesquareTest/FTListModuleViewController.m; sourceTree = SOURCE_ROOT; };
 		664A1EC81DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/FTListView.storyboard; sourceTree = "<group>"; };
-		664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ForesquareTest.xcdatamodel; sourceTree = "<group>"; };
 		664A1ECD1DF6C47700F9637C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		664A1ED01DF6C47700F9637C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		664A1ED21DF6C47700F9637C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 		633660981E01E17F006F091F /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -701,7 +698,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				664A1ECC1DF6C47700F9637C /* ForesquareTest.xcdatamodeld in Sources */,
 				633715721E05CD4E00887366 /* FTCategoryCell.m in Sources */,
 				6656B7BC1DF83CE30026BDA8 /* FTCategory.m in Sources */,
 				635E18161DFEBDC400FCFDE7 /* FTLoadingScreen.m in Sources */,
@@ -896,20 +892,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		664A1ECA1DF6C47700F9637C /* ForesquareTest.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */,
-			);
-			currentVersion = 664A1ECB1DF6C47700F9637C /* ForesquareTest.xcdatamodel */;
-			name = ForesquareTest.xcdatamodeld;
-			path = ../../../ForesquareTest.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 664A1EB31DF6C47700F9637C /* Project object */;
 }

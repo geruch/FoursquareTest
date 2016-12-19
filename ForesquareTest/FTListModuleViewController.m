@@ -98,6 +98,8 @@
     self.categories = [NSArray arrayWithArray:[FTListModelManager sharedManager].categories];
     
     self.addButtonsForSections = [self configureSectionsButtons];
+    
+    [self applyFilterToData];
 
     [self reloadEntries];
     [self hideLoader];
