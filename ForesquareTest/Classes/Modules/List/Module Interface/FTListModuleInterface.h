@@ -14,6 +14,9 @@
 - (void)updateLocation;
 - (void)loadAdditionalVenuesWithCategory:(FTCategory *)category forIndexPath:(NSIndexPath *)indexPath;
 - (void)selectCategory;
+- (void)selectLocation;
 - (void)collectVenueCategories;
+
+- (BOOL)checkIfLocationChanged;
 
 @end

@@ -17,6 +17,7 @@
 @interface FTListInteractor ()
 
 @property (nonatomic, strong) FTLocationManager *locationManager;
+@property (nonatomic, copy) NSString *userLocation;
 
 @end
 
@@ -24,17 +25,12 @@
 
 -(void)updateVenuesItems
 {
-    NSString *userLocation;
-    if(!self.locationManager.currentLocation)
+    if([FTListModelManager sharedManager].presetLocation == 0)
     {
-        userLocation = @"37.7858,-122.406";
-    }
-    else
-    {
-        userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
+        self.userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
     }
     
-    [[FTNetworkManager sharedHttpClient] getNearbyVenuesWithLocation:userLocation SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [[FTNetworkManager sharedHttpClient] getNearbyVenuesWithLocation:self.userLocation SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
         
         //        NSLog(@"%@", responseObject);
         
@@ -54,17 +50,25 @@
 
 -(void)updateLocationData
 {
-    self.locationManager = [[FTLocationManager alloc] init];
-    self.locationManager.eventHandler = self;
-//    [self.locationManager launchManager:self];
-    [self.locationManager launchManager];
+    if([FTListModelManager sharedManager].presetLocation == 0)
+    {
+        self.locationManager = [[FTLocationManager alloc] init];
+        self.locationManager.eventHandler = self;
+        [self.locationManager launchManager];
+    }
+    else
+    {
+        CLLocationCoordinate2D coords = [FTListModelManager sharedManager].userCoordinates;
+        self.userLocation = [NSString stringWithFormat:@"%f,%f",coords.latitude, coords.longitude];
+        [self updateVenuesItems];
+        [self.output didUpdateLocationData:[FTListModelManager sharedManager].presetLocation];
+        
+    }
 }
 
 -(void)getAdditionalVenuesForCategory:(FTCategory *)category forIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    NSString *userLocation = [NSString stringWithFormat:@"%f,%f",self.locationManager.currentLocation.coordinate.latitude,self.locationManager.currentLocation.coordinate.longitude];
-    
-    [[FTNetworkManager sharedHttpClient] getMoreVenuesWithLocation:userLocation category:category SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
+    [[FTNetworkManager sharedHttpClient] getMoreVenuesWithLocation:self.userLocation category:category SuccessBlock:^(NSURLSessionDataTask *task, id responseObject) {
         
         FTObjectMaker *fabric = [[FTObjectMaker alloc] init];
         NSArray *tmp = [responseObject valueForKeyPath:@"response.venues"];
@@ -155,11 +159,16 @@
     [array sortUsingDescriptors:@[sort]];
 }
 
+-(NSInteger)getCurrentLocationIndex
+{
+    return [FTListModelManager sharedManager].presetLocation;
+}
+
 #pragma mark - FTLocationManagerInterface
 
 -(void)updateUserLocation
 {
-//    [self updateVenuesItems];
+    [self.output didUpdateLocationData:[FTListModelManager sharedManager].presetLocation];
     [self updateCategories];
 }
 

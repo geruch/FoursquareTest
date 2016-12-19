@@ -34,8 +34,7 @@
     [super viewDidLoad];
     
     self.tableData = [NSMutableDictionary dictionary];
-//    self.filterData = [NSMutableDictionary dictionary];
-    self.filterData = [FTListModelManager sharedManager].filter;
+    self.filterData = [NSMutableDictionary dictionaryWithDictionary:[FTListModelManager sharedManager].filter];
     
     [self configureView];
 }
@@ -50,11 +49,22 @@
 {
     [super viewWillAppear:animated];
     
-    self.counter = self.tableData.allKeys.count;
-    
-//    [self.eventHandler updateView];
+    [self countSelectedCategories];
 }
 
+-(void)countSelectedCategories
+{
+    NSInteger result = 0;
+    for(NSString *key in self.filterData.allKeys)
+    {
+        if([[self.filterData objectForKey:key] boolValue])
+        {
+            result++;
+        }
+    }
+    
+    self.counter = result;
+}
 
 - (void)configureView
 {
@@ -72,10 +82,18 @@
     self.navigationItem.leftBarButtonItem = cancelItem;
     
     self.categories = [FTListModelManager sharedManager].categories;
+    
     for(FTCategory *item in self.categories)
     {
         [self.tableData setObject:item forKey:item.name];
-        [self.filterData setObject:[NSNumber numberWithBool:YES] forKey:item.name];
+    }
+    
+    if(self.filterData.allKeys.count == 0)
+    {
+        for(FTCategory *item in self.categories)
+        {
+            [self.filterData setObject:[NSNumber numberWithBool:YES] forKey:item.name];
+        }
     }
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FTCategoryCell" bundle:nil] forCellReuseIdentifier:@"categoryCell"];
@@ -90,6 +108,7 @@
 - (void)didTapSaveButton:(id)sender
 {
     [self.eventHandler saveCategoriesFilter:self.filterData];
+    [FTListModelManager sharedManager].filter = [NSMutableDictionary dictionaryWithDictionary:self.filterData];
 }
 
 - (void)didTapCancelButton:(id)sender
@@ -155,8 +174,6 @@
         [self.filterData setObject:[NSNumber numberWithBool:YES] forKey:cell.name];
         self.counter++;
     }
-    
-    [FTListModelManager sharedManager].filter = self.filterData;
 }
 
 - (UITableViewCell *)configureCategorySelectionCell:(NSIndexPath *)indexPath

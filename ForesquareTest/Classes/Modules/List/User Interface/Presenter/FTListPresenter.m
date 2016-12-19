@@ -13,13 +13,28 @@
 #import "FTNetworkManager.h"
 #import "FTObjectMaker.h"
 #import "FTListModelManager.h"
+#import "FTListInteractor.h"
 
 @interface FTListPresenter ()
+
+@property (nonatomic) NSInteger lastLocationIndex;
 
 @end
 
 
 @implementation FTListPresenter
+
+-(BOOL)checkIfLocationChanged
+{
+    if(self.lastLocationIndex == [self.listInteractor getCurrentLocationIndex])
+    {
+        return NO;
+    }
+    else
+    {
+        return YES;
+    }
+}
 
 -(void)collectVenuesData
 {
@@ -46,6 +61,11 @@
     [self.userInterface insertAdditionalVenues:items forIndexPath:indexPath];
 }
 
+-(void)didUpdateLocationData:(NSInteger)index
+{
+    self.lastLocationIndex = index;
+}
+
 -(void)updateLocation
 {
     [self.listInteractor updateLocationData];
@@ -54,6 +74,11 @@
 -(void)selectCategory
 {
     [self.listWireframe showFilterScreen];
+}
+
+-(void)selectLocation
+{
+    [self.listWireframe showLocationsScreen];
 }
 
 @end

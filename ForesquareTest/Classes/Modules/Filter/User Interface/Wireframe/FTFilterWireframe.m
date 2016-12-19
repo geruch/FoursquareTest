@@ -66,7 +66,7 @@ static NSString *FilterViewControllerIdentifier = @"FTFilterModuleViewController
 
 #pragma mark - module interface
 
--(void)dismissAddInterface
+-(void)dismissFilter
 {
     [self.presentedViewController dismissViewControllerAnimated:YES completion:nil];
 }

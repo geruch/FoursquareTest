@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630603571E07E780002EA1C8 /* FTLocationsListModule.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 630603561E07E780002EA1C8 /* FTLocationsListModule.storyboard */; };
+		6306035A1E07E7DB002EA1C8 /* FTLocationsListModuleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 630603591E07E7DB002EA1C8 /* FTLocationsListModuleVC.m */; };
+		630603621E07EA04002EA1C8 /* FTLocationItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 630603601E07EA04002EA1C8 /* FTLocationItemCell.m */; };
+		630603631E07EA04002EA1C8 /* FTLocationItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 630603611E07EA04002EA1C8 /* FTLocationItemCell.xib */; };
+		6306036C1E07F729002EA1C8 /* FTLocationsListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6306036B1E07F729002EA1C8 /* FTLocationsListPresenter.m */; };
+		6306036F1E07F7A2002EA1C8 /* FTLocationsListWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 6306036E1E07F7A2002EA1C8 /* FTLocationsListWireframe.m */; };
+		630603721E07F7D9002EA1C8 /* FTLocationsListInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 630603711E07F7D9002EA1C8 /* FTLocationsListInteractor.m */; };
 		633660921E003591006F091F /* FTShowMoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660901E003590006F091F /* FTShowMoreCell.m */; };
 		633660931E003591006F091F /* FTShowMoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 633660911E003590006F091F /* FTShowMoreCell.xib */; };
 		633660A21E01E4E5006F091F /* FTListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 633660A11E01E4E5006F091F /* FTListPresenter.m */; };
@@ -47,6 +54,21 @@
 
 /* Begin PBXFileReference section */
 		5B721C9BC094896191A7435C /* Pods-ForesquareTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForesquareTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ForesquareTest/Pods-ForesquareTest.debug.xcconfig"; sourceTree = "<group>"; };
+		630603561E07E780002EA1C8 /* FTLocationsListModule.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FTLocationsListModule.storyboard; sourceTree = "<group>"; };
+		630603581E07E7DB002EA1C8 /* FTLocationsListModuleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListModuleVC.h; sourceTree = "<group>"; };
+		630603591E07E7DB002EA1C8 /* FTLocationsListModuleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLocationsListModuleVC.m; sourceTree = "<group>"; };
+		6306035F1E07EA04002EA1C8 /* FTLocationItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationItemCell.h; sourceTree = "<group>"; };
+		630603601E07EA04002EA1C8 /* FTLocationItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLocationItemCell.m; sourceTree = "<group>"; };
+		630603611E07EA04002EA1C8 /* FTLocationItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTLocationItemCell.xib; sourceTree = "<group>"; };
+		630603641E07F541002EA1C8 /* FTLocationsListInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListInterface.h; sourceTree = "<group>"; };
+		630603671E07F5D9002EA1C8 /* FTLocationsListModuleInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListModuleInterface.h; sourceTree = "<group>"; };
+		6306036A1E07F729002EA1C8 /* FTLocationsListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListPresenter.h; sourceTree = "<group>"; };
+		6306036B1E07F729002EA1C8 /* FTLocationsListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLocationsListPresenter.m; sourceTree = "<group>"; };
+		6306036D1E07F7A2002EA1C8 /* FTLocationsListWireframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListWireframe.h; sourceTree = "<group>"; };
+		6306036E1E07F7A2002EA1C8 /* FTLocationsListWireframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLocationsListWireframe.m; sourceTree = "<group>"; };
+		630603701E07F7D9002EA1C8 /* FTLocationsListInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListInteractor.h; sourceTree = "<group>"; };
+		630603711E07F7D9002EA1C8 /* FTLocationsListInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTLocationsListInteractor.m; sourceTree = "<group>"; };
+		630603731E07F812002EA1C8 /* FTLocationsListIOInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTLocationsListIOInterface.h; sourceTree = "<group>"; };
 		6336608F1E003590006F091F /* FTShowMoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTShowMoreCell.h; sourceTree = "<group>"; };
 		633660901E003590006F091F /* FTShowMoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTShowMoreCell.m; sourceTree = "<group>"; };
 		633660911E003590006F091F /* FTShowMoreCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FTShowMoreCell.xib; sourceTree = "<group>"; };
@@ -139,6 +161,92 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6306034E1E07E490002EA1C8 /* Locations List */ = {
+			isa = PBXGroup;
+			children = (
+				630603511E07E4E9002EA1C8 /* User Interface */,
+				630603501E07E4DD002EA1C8 /* Module Interface */,
+				6306034F1E07E4C9002EA1C8 /* Application Logic */,
+			);
+			path = "Locations List";
+			sourceTree = "<group>";
+		};
+		6306034F1E07E4C9002EA1C8 /* Application Logic */ = {
+			isa = PBXGroup;
+			children = (
+				630603551E07E743002EA1C8 /* Interactor */,
+			);
+			path = "Application Logic";
+			sourceTree = "<group>";
+		};
+		630603501E07E4DD002EA1C8 /* Module Interface */ = {
+			isa = PBXGroup;
+			children = (
+				630603671E07F5D9002EA1C8 /* FTLocationsListModuleInterface.h */,
+			);
+			path = "Module Interface";
+			sourceTree = "<group>";
+		};
+		630603511E07E4E9002EA1C8 /* User Interface */ = {
+			isa = PBXGroup;
+			children = (
+				630603541E07E70D002EA1C8 /* View */,
+				630603531E07E6FC002EA1C8 /* Presenter */,
+				630603521E07E6DF002EA1C8 /* Wireframe */,
+			);
+			path = "User Interface";
+			sourceTree = "<group>";
+		};
+		630603521E07E6DF002EA1C8 /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				6306036D1E07F7A2002EA1C8 /* FTLocationsListWireframe.h */,
+				6306036E1E07F7A2002EA1C8 /* FTLocationsListWireframe.m */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		630603531E07E6FC002EA1C8 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				6306036A1E07F729002EA1C8 /* FTLocationsListPresenter.h */,
+				6306036B1E07F729002EA1C8 /* FTLocationsListPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		630603541E07E70D002EA1C8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6306035B1E07E917002EA1C8 /* Cell */,
+				630603561E07E780002EA1C8 /* FTLocationsListModule.storyboard */,
+				630603581E07E7DB002EA1C8 /* FTLocationsListModuleVC.h */,
+				630603591E07E7DB002EA1C8 /* FTLocationsListModuleVC.m */,
+				630603641E07F541002EA1C8 /* FTLocationsListInterface.h */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		630603551E07E743002EA1C8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				630603701E07F7D9002EA1C8 /* FTLocationsListInteractor.h */,
+				630603711E07F7D9002EA1C8 /* FTLocationsListInteractor.m */,
+				630603731E07F812002EA1C8 /* FTLocationsListIOInterface.h */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		6306035B1E07E917002EA1C8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6306035F1E07EA04002EA1C8 /* FTLocationItemCell.h */,
+				630603601E07EA04002EA1C8 /* FTLocationItemCell.m */,
+				630603611E07EA04002EA1C8 /* FTLocationItemCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		633660941E01DEFD006F091F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +263,7 @@
 		633660951E01DF3C006F091F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				6306034E1E07E490002EA1C8 /* Locations List */,
 				633715441E047B8600887366 /* Filter */,
 				633660961E01DF65006F091F /* List */,
 			);
@@ -523,7 +632,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				664A1ED11DF6C47700F9637C /* LaunchScreen.storyboard in Resources */,
+				630603631E07EA04002EA1C8 /* FTLocationItemCell.xib in Resources */,
 				633715731E05CD4E00887366 /* FTCategoryCell.xib in Resources */,
+				630603571E07E780002EA1C8 /* FTLocationsListModule.storyboard in Resources */,
 				639B53E51DFD99A300AE6CF5 /* FTTableHeader.xib in Resources */,
 				639B53E01DFD586C00AE6CF5 /* FTVenueCell.xib in Resources */,
 				6337155E1E047E6200887366 /* FTFilterModuleViewController.storyboard in Resources */,
@@ -602,15 +713,20 @@
 				633715641E047EB500887366 /* FTFilterWireframe.m in Sources */,
 				639B53E31DFD981800AE6CF5 /* FTTableHeader.m in Sources */,
 				6337156A1E047F6C00887366 /* FTFilterInteractor.m in Sources */,
+				630603621E07EA04002EA1C8 /* FTLocationItemCell.m in Sources */,
+				630603721E07F7D9002EA1C8 /* FTLocationsListInteractor.m in Sources */,
 				664A1EC61DF6C47700F9637C /* FTListModuleViewController.m in Sources */,
 				664A1EC31DF6C47700F9637C /* AppDelegate.m in Sources */,
 				664A1EDA1DF6C82D00F9637C /* FTNetworkManager.m in Sources */,
 				633660A51E01E4FF006F091F /* FTListWireframe.m in Sources */,
 				633660A21E01E4E5006F091F /* FTListPresenter.m in Sources */,
+				6306036F1E07F7A2002EA1C8 /* FTLocationsListWireframe.m in Sources */,
 				633660A81E01E58B006F091F /* FTListInteractor.m in Sources */,
 				6337155D1E047E6200887366 /* FTFilterModuleViewController.m in Sources */,
 				639B53DF1DFD586C00AE6CF5 /* FTVenueCell.m in Sources */,
 				664A1EE31DF6D09C00F9637C /* FTLocation.m in Sources */,
+				6306035A1E07E7DB002EA1C8 /* FTLocationsListModuleVC.m in Sources */,
+				6306036C1E07F729002EA1C8 /* FTLocationsListPresenter.m in Sources */,
 				633660B41E0335BE006F091F /* AppDependencies.m in Sources */,
 				633660921E003591006F091F /* FTShowMoreCell.m in Sources */,
 				664A1EC01DF6C47700F9637C /* main.m in Sources */,

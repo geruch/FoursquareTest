@@ -16,7 +16,7 @@
 -(void)updateLocationData;
 -(void)updateVenuesItems;
 -(void)getAdditionalVenuesForCategory:(FTCategory *)category forIndexPath:(NSIndexPath *)indexPath;
--(void)updateLocationData;
+-(NSInteger)getCurrentLocationIndex;
 
 @end
 
@@ -25,6 +25,6 @@
 -(void)didUpdateCategories;
 -(void)didUpdateVenuesItems:(NSDictionary *)dictionary;
 -(void)didGetAdditionalVenues:(NSArray *)items forIndexPath:(NSIndexPath *)indexPath;
--(void)didUpdateLocationData;
+-(void)didUpdateLocationData:(NSInteger)index;
 
 @end

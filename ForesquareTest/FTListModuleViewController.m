@@ -49,11 +49,19 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if(self.tableData.allKeys.count>0)
+    if([self.eventHandler checkIfLocationChanged])
     {
-        [self applyFilterToData];
-        [self reloadEntries];
+        [self.eventHandler updateLocation];
     }
+    else
+    {
+        if(self.tableData.allKeys.count>0)
+        {
+            [self applyFilterToData];
+            [self reloadEntries];
+        }
+    }
+    
 }
 
 - (void)configureView
@@ -63,12 +71,15 @@
                                                       target:self
                                                       action:@selector(didTapCategoryButton:)];
     
-//    UIBarButtonItem *changeLocation = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
-//                                                                                target:self
-//                                                                                action:@selector(didTapLoactionButton:)];
+    UIBarButtonItem *changeLocation = [[UIBarButtonItem alloc] initWithTitle:@"LOC"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(didTapLoactionButton:)];
+    
+    self.title = @"Venues List";
     
     self.navigationItem.rightBarButtonItem = selectCategory;
-//    self.navigationItem.leftBarButtonItem = changeLocation;
+    self.navigationItem.leftBarButtonItem = changeLocation;
     
     [self.tableView registerNib:[UINib nibWithNibName:@"FTVenueCell" bundle:nil] forCellReuseIdentifier:@"venueCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"FTShowMoreCell" bundle:nil] forCellReuseIdentifier:@"showMoreCell"];
@@ -81,6 +92,7 @@
 
 - (void)showListData:(NSDictionary *)data
 {
+    [self.tableView setContentOffset:CGPointZero animated:NO];
     self.tableData = data;
     self.baseViewData = [NSDictionary dictionaryWithDictionary:data];
     self.categories = [NSArray arrayWithArray:[FTListModelManager sharedManager].categories];
@@ -118,11 +130,11 @@
 {
     self.tableData = [self injectObjects:tmp
                             toDictionary:self.tableData
-                                  forKey:[self.tableData.allKeys objectAtIndex:indexPath.section]];
+                                  forKey:[[self.categories objectAtIndex:indexPath.section] name]];
     
     self.baseViewData = [self injectObjects:tmp
                             toDictionary:self.baseViewData
-                                  forKey:[self.baseViewData.allKeys objectAtIndex:indexPath.section]];
+                                  forKey:[[self.categories objectAtIndex:indexPath.section] name]];
     
     NSIndexSet *sectionToReload = [NSIndexSet indexSetWithIndex:indexPath.section];
     [self.tableView beginUpdates];
@@ -136,10 +148,9 @@
                   toDictionary:(NSDictionary *)dictionary
                         forKey:(NSString *)key
 {
-//    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:self.tableData];
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     NSMutableArray *tmp = [result objectForKey:key];
-    if(tmp==[NSNull null])
+    if(tmp==[NSNull null] || !tmp)
     {
         tmp = [NSMutableArray array];
     }
@@ -195,7 +206,7 @@
 {
     self.loadingScreen = [[[NSBundle mainBundle]loadNibNamed:@"FTLoadingScreen" owner:nil options:nil] objectAtIndex:0];
     self.loadingScreen.frame = self.view.frame;
-    [self.view addSubview:self.loadingScreen];
+    [self.navigationController.view addSubview:self.loadingScreen];
     [self.loadingScreen startLoadingIndication];
 }
 
@@ -214,6 +225,11 @@
 - (void)didTapCategoryButton:(id)sender
 {
     [self.eventHandler selectCategory];
+}
+
+- (void)didTapLoactionButton:(id)sender
+{
+    [self.eventHandler selectLocation];
 }
 
 #pragma mark - UITableViewDelegate and DataSource Methods
@@ -235,7 +251,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSString *key = [self.tableData.allKeys objectAtIndex:section];
+    NSString *key = [[self.categories objectAtIndex:section] name];
     if([self.tableData objectForKey:key]!=[NSNull null])
     {
         NSArray *tmp = [NSArray arrayWithArray:[self.tableData objectForKey:key]];
@@ -261,8 +277,6 @@
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-//    NSString *testKey = [self.tableData.allKeys objectAtIndex:section];
-//    FTVenue *testItem = [[self.tableData objectForKey:testKey] objectAtIndex:0];
     FTCategory *category = [self.categories objectAtIndex:section];
     
     FTTableHeader *view = [[[NSBundle mainBundle]loadNibNamed:@"FTTableHeader" owner:nil options:nil]objectAtIndex:0];
@@ -278,7 +292,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSMutableArray *sectionItems = [self.tableData objectForKey:[self.tableData.allKeys objectAtIndex:indexPath.section]];
+    NSString *key = [[self.categories objectAtIndex:indexPath.section] name];
+    NSMutableArray *sectionItems = [self.tableData objectForKey:key];
     if(sectionItems!=[NSNull null] && indexPath.row < sectionItems.count)
     {
         return [self configureVenueCell:indexPath];
@@ -291,7 +306,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath
 {
-    NSString *key = [self.tableData.allKeys objectAtIndex:indexPath.section];
+    NSString *key = [[self.categories objectAtIndex:indexPath.section] name];
     NSArray *sectionItems = [self.tableData objectForKey:key];
     if(sectionItems==[NSNull null] || indexPath.row == sectionItems.count)
     {
@@ -309,7 +324,7 @@
 -(UITableViewCell *)configureVenueCell:(NSIndexPath *)indexPath
 {
     FTVenueCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"venueCell" forIndexPath:indexPath];
-    NSString *key = [self.tableData.allKeys objectAtIndex:indexPath.section];
+    NSString *key = [[self.categories objectAtIndex:indexPath.section] name];
     FTVenue *item = [[self.tableData objectForKey:key] objectAtIndex:indexPath.row];
     [cell initWithVenue:item];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

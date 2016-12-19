@@ -22,5 +22,4 @@
 
 @property (nonatomic, strong) FTListModuleViewController<FTListViewInterface> *userInterface;
 
-
 @end

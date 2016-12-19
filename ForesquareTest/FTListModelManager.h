@@ -7,12 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface FTListModelManager : NSObject
 
 @property (nonatomic, strong) NSMutableArray *categories;
 @property (nonatomic, strong) NSMutableDictionary *filter;
+@property (nonatomic) CLLocationCoordinate2D userCoordinates;
+@property (nonatomic) NSInteger presetLocation;
 
 + (FTListModelManager *)sharedManager;
+-(void)settingPresetLocation:(NSInteger)index;
+-(NSArray *)getLocationsList;
 
 @end

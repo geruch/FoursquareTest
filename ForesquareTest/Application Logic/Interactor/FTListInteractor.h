@@ -13,7 +13,6 @@
 
 @interface FTListInteractor : NSObject<FTListInputInterface>
 
-@property (nonatomic, weak)     id<FTListOutputInterface> output;
-//@property (nonatomic, strong)   FTListDataManager *listDataManager;
+@property (nonatomic, weak) id<FTListOutputInterface> output;
 
 @end

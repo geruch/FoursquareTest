@@ -18,6 +18,10 @@
 #import "FTFilterInteractor.h"
 #import "FTFilterPresenter.h"
 
+#import "FTLocationsListWireframe.h"
+#import "FTLocationsListInteractor.h"
+#import "FTLocationsListPresenter.h"
+
 @interface AppDependencies ()
 
 @property (nonatomic, strong) FTListWireframe *listWireframe;
@@ -56,14 +60,22 @@
     FTFilterWireframe *filterWireframe = [[FTFilterWireframe alloc] init];
     FTFilterPresenter *filterPresenter = [[FTFilterPresenter alloc] init];
     FTFilterInteractor *filterInteractor = [[FTFilterInteractor alloc] init];
+    
+    //Locations List module
+    FTLocationsListWireframe *locationsWireframe = [[FTLocationsListWireframe alloc] init];
+    FTLocationsListPresenter *locationsPresenter = [[FTLocationsListPresenter alloc] init];
+    FTLocationsListInteractor *locationsInteractor = [[FTLocationsListInteractor alloc] init];
 
     //Filter module
-    //    filterInteractor.output = filterPresenter;
     filterPresenter.filterInteractor = filterInteractor;
     filterPresenter.filterWireframe = filterWireframe;
     filterWireframe.filterPresenter = filterPresenter;
-    //    filterWireframe.rootWireframe = rootWireFrame;
-    //    self.listWireframe = listWireframe;
+    
+    //Locations List module
+    locationsPresenter.locationsInteractor = locationsInteractor;
+    locationsPresenter.locationsWireframe = locationsWireframe;
+    locationsWireframe.locationsPresenter = locationsPresenter;
+    locationsInteractor.output = locationsPresenter;
     
     //List module
     listInteractor.output = listPresenter;
@@ -72,6 +84,7 @@
     listWireframe.listPresenter = listPresenter;
     listWireframe.rootWireframe = rootWireFrame;
     listWireframe.filterWireframe = filterWireframe;
+    listWireframe.locationsWireframe = locationsWireframe;
     self.listWireframe = listWireframe;
     
 }

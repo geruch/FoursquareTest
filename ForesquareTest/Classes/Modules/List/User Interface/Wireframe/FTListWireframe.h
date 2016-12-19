@@ -9,6 +9,7 @@
 
 #import "FTRootNavControllerWireframe.h"
 #import "FTFilterWireframe.h"
+#import "FTLocationsListWireframe.h"
 
 #import <Foundation/Foundation.h>
 
@@ -18,9 +19,11 @@
 
 @property (nonatomic, strong) FTListPresenter *listPresenter;
 @property (nonatomic, strong) FTFilterWireframe *filterWireframe;
+@property (nonatomic, strong) FTLocationsListWireframe *locationsWireframe;
 @property (nonatomic, strong) FTRootNavControllerWireframe *rootWireframe;
 
 - (void)presentListInterfaceFromWindow:(UIWindow *)window;
 - (void)showFilterScreen;
+- (void)showLocationsScreen;
 
 @end

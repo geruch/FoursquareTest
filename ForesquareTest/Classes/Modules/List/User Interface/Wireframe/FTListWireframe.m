@@ -63,4 +63,9 @@ static NSString *ListViewControllerStoryboardName = @"FTListView";
     [self.filterWireframe pushFilterToNavigationController:self.listViewController.navigationController];
 }
 
+- (void)showLocationsScreen
+{
+    [self.locationsWireframe pushLocationsToNavigationController:self.listViewController.navigationController];
+}
+
 @end
